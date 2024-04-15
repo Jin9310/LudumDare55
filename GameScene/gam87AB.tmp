@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdy88dutfveal"]
+
+[ext_resource type="Script" path="res://GameScene/game.gd" id="1_sclcg"]
+[ext_resource type="PackedScene" uid="uid://egtp36jotad5" path="res://Scenes/spawning_area.tscn" id="1_w12n5"]
+[ext_resource type="PackedScene" uid="uid://bjw5t5gnc0nvm" path="res://Scenes/work_place_01.tscn" id="3_t7dmj"]
+
+[sub_resource type="Curve2D" id="Curve2D_puwn5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 270, 142, 0, 0, 0, 0, 289, 130, 0, 0, 0, 0, 310, 152, 0, 0, 0, 0, 301, 171, 0, 0, 0, 0, 275, 170, 0, 0, 0, 0, 268, 146)
+}
+point_count = 6
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_sclcg")
+
+[node name="spawning_area" parent="." instance=ExtResource("1_w12n5")]
+position = Vector2(288, 162)
+
+[node name="SpawnAreaHelper" type="Path2D" parent="."]
+curve = SubResource("Curve2D_puwn5")
+
+[node name="SpawnPath2D" type="PathFollow2D" parent="SpawnAreaHelper"]
+unique_name_in_owner = true
+position = Vector2(270, 142)
+rotation = -0.563316
+
+[node name="WorkPlace01" parent="." instance=ExtResource("3_t7dmj")]
+position = Vector2(411, 59)
+
+[connection signal="input_event" from="spawning_area" to="." method="_on_spawning_area_input_event"]

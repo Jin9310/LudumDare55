@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://cfkuohbaghybe"
+path="res://.godot/imported/sacrifice.sfxr-6668413ab07d767d272dcbfa4d4ccc1f.sample"
+
+[deps]
+
+source_file="res://Sounds/sacrifice.sfxr"
+dest_files=["res://.godot/imported/sacrifice.sfxr-6668413ab07d767d272dcbfa4d4ccc1f.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://diydominc2jjk"
+path="res://.godot/imported/to_war.sfxr-2e58f0e3ccc93f579ba0bd4250fcd774.sample"
+
+[deps]
+
+source_file="res://Sounds/to_war.sfxr"
+dest_files=["res://.godot/imported/to_war.sfxr-2e58f0e3ccc93f579ba0bd4250fcd774.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

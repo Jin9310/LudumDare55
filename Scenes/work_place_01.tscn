@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjw5t5gnc0nvm"]
+
+[ext_resource type="PackedScene" uid="uid://cnx0gji3v8ncm" path="res://PrefabedScenes/object_prefab.tscn" id="1_qfxk8"]
+[ext_resource type="Script" path="res://Scenes/work_place_01.gd" id="2_omypy"]
+[ext_resource type="Texture2D" uid="uid://c22ryr7ff4kdg" path="res://Art/SourceFiles/worship_place-Sheet.png" id="3_sj6f3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dvre"]
+size = Vector2(76.5, 50)
+
+[sub_resource type="Animation" id="Animation_ec3wf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_o1otf"]
+resource_name = "worship"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0a10c"]
+_data = {
+"RESET": SubResource("Animation_ec3wf"),
+"worship": SubResource("Animation_o1otf")
+}
+
+[node name="WorkPlace01" instance=ExtResource("1_qfxk8")]
+script = ExtResource("2_omypy")
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("3_sj6f3")
+hframes = 12
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(10.25, -12)
+shape = SubResource("RectangleShape2D_7dvre")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_0a10c")
+}
+autoplay = "worship"

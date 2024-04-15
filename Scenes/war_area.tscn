@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr64q6m3vlp6g"]
+
+[ext_resource type="PackedScene" uid="uid://cnx0gji3v8ncm" path="res://PrefabedScenes/object_prefab.tscn" id="1_4iu8y"]
+[ext_resource type="Texture2D" uid="uid://r7squku8s418" path="res://Art/SourceFiles/war_camp-Sheet.png" id="2_603eb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eywt5"]
+size = Vector2(59, 33)
+
+[sub_resource type="Animation" id="Animation_0m0xb"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_oeeit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rkd1"]
+_data = {
+"RESET": SubResource("Animation_oeeit"),
+"idle": SubResource("Animation_0m0xb")
+}
+
+[node name="WarArea" instance=ExtResource("1_4iu8y")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("2_603eb")
+hframes = 8
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_eywt5")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_5rkd1")
+}
+autoplay = "idle"

@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnioda75b37gc"]
+
+[ext_resource type="PackedScene" uid="uid://cnx0gji3v8ncm" path="res://PrefabedScenes/object_prefab.tscn" id="1_66sks"]
+[ext_resource type="Script" path="res://Scenes/sacrifice.gd" id="2_yrin6"]
+[ext_resource type="Texture2D" uid="uid://t6x7jw3yelfo" path="res://Art/SourceFiles/sacrifice_anim-Sheet.png" id="3_58uih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsbe0"]
+size = Vector2(33, 28)
+
+[sub_resource type="Animation" id="Animation_pj8uv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_4x35f"]
+resource_name = "idle"
+length = 1.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_ydaql"]
+resource_name = "sacrifice"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqixd"]
+_data = {
+"RESET": SubResource("Animation_pj8uv"),
+"idle": SubResource("Animation_4x35f"),
+"sacrifice": SubResource("Animation_ydaql")
+}
+
+[node name="Sacrifice" instance=ExtResource("1_66sks")]
+script = ExtResource("2_yrin6")
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("3_58uih")
+hframes = 18
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(2.5, -2)
+shape = SubResource("RectangleShape2D_jsbe0")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_pqixd")
+}
+autoplay = "idle"
