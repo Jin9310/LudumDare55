@@ -107,7 +107,7 @@ var mouse_position_name: String
 func _ready():
 	$bg_sound.play()
 	game_timer = base_game_time
-	game_is_running = true
+	game_is_running = false
 	work_timer = work_timer_base
 	%UpdateWorkLabel.text = "cost: " + str(work_upgrade_cost)
 	%UpdateSpawnLabel.text = "cost: " + str(number_of_spawns_cost)
@@ -215,7 +215,7 @@ func update_mouse_position(selected_position: int):
 #basic minion summon
 func summon_basic_minion(count: int):
 	#prepare to summon more minions at one time
-	if mouse_position_name == "Spawn" && game_is_running:
+	if mouse_position_name == "Spawn":# && game_is_running:
 		for i in range(count):
 			var new_minion = preload("res://Scenes/basic_minion.tscn").instantiate()
 			%SpawnPath2D.progress_ratio = randf()
@@ -223,7 +223,7 @@ func summon_basic_minion(count: int):
 			add_child(new_minion)
 			minions_summoned += 1
 			%Summoned.text = "Summoned :" + str(minions_summoned)
-	if mouse_position_name == "Work" && game_is_running:
+	if mouse_position_name == "Work":# && game_is_running:
 		for i in range(minions_at_work):
 			var new_minion = preload("res://Scenes/basic_minion.tscn").instantiate()
 			%SpawnAtWork.progress_ratio = randf()

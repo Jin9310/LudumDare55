@@ -51,8 +51,6 @@ _data = {
 }
 
 [node name="BasicMinion" instance=ExtResource("1_ab1ex")]
-light_mask = 2
-visibility_layer = 2
 script = ExtResource("2_8jwnj")
 
 [node name="Sprite2D" parent="." index="0"]
