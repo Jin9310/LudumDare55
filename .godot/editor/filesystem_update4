@@ -1,5 +1,4 @@
 res://GameScene/game.tscn
-res://GameScene/game.gd
 res://Scenes/sacrifice.tscn
 res://Scenes/spawning_area.tscn
 res://Scenes/work_place_01.tscn
@@ -7,4 +6,4 @@ res://Scenes/basic_minion.tscn
 res://Scenes/plus_mana_worsh.tscn
 res://Scenes/mana_from_click.tscn
 res://Scenes/entry_scene.tscn
-res://Scenes/entry_scene.gd
+res://Scenes/basic_minion.gd

@@ -41,6 +41,7 @@ func move_to_position(position: Node):
 func go_to_work():
 	move_to_work_position = true
 	move_to_sacrifice_position = false
+	move_to_war = false
 
 #change minions position
 func arrived_at_work(min_pos):
@@ -48,18 +49,21 @@ func arrived_at_work(min_pos):
 		minions_position = "Work"
 
 func go_to_sacrifice():
+	move_to_sacrifice_position = true
 	move_to_work_position = false
-	if minions_position == "Spawn":
-		move_to_sacrifice_position = true
+	move_to_war = false
 
 func go_to_sacrifice_from_work():
 	minions_position = "Work"
 	move_to_work_position = false
+	move_to_war = false
 	if minions_position == "Work":
 		move_to_sacrifice_position = true
 
 func go_to_war():
 	move_to_war = true
+	move_to_work_position = false
+	move_to_sacrifice_position = false
 
 
 
