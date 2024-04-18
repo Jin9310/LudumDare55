@@ -1,6 +1,7 @@
 res://GameScene/game.tscn
-res://Scenes/sacrifice.tscn
-res://Scenes/spawning_area.tscn
-res://Scenes/work_place_01.tscn
 res://Scenes/basic_minion.tscn
-res://GameScene/game.gd
+res://Scenes/spawning_area.tscn
+res://NewGame/new_game.tscn
+res://NewGame/acolyte.tscn
+res://NewGame/acolyte.gd
+res://NewGame/new_game.gd

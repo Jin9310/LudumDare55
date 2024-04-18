@@ -1,3 +1,7 @@
+Timer
+PathFollow2D
+Path2D
+Camera2D
 Button
 TextureRect
 CanvasLayer
@@ -9,6 +13,3 @@ TileMap
 Panel
 ColorRect
 PhantomCamera2D
-PhantomCameraHost
-Camera2D
-Timer

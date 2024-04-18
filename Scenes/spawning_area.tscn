@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ct54p3ksuy446" path="res://Art/SourceFiles/summoning_circle-Sheet.png" id="3_qxyau"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mnjiw"]
-radius = 28.0713
+radius = 24.0
 
 [sub_resource type="Animation" id="Animation_a08yn"]
 length = 0.001
@@ -72,10 +72,14 @@ hframes = 16
 frame = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
 shape = SubResource("CircleShape2D_mnjiw")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_qasb3")
 }
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+zoom = Vector2(2, 2)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

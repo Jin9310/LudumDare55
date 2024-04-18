@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://rt4h3c1ud2u6"]
+
+[ext_resource type="PackedScene" uid="uid://egtp36jotad5" path="res://Scenes/spawning_area.tscn" id="1_tcpe8"]
+[ext_resource type="Script" path="res://NewGame/new_game.gd" id="1_uuhic"]
+
+[sub_resource type="Curve2D" id="Curve2D_vwdx8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 261, 121, 0, 0, 0, 0, 288, 127, 0, 0, 0, 0, 301, 131, 0, 0, 0, 0, 309, 160, 0, 0, 0, 0, 290, 197, 0, 0, 0, 0, 240, 194, 0, 0, 0, 0, 221, 158, 0, 0, 0, 0, 234, 133, 0, 0, 0, 0, 261, 121)
+}
+point_count = 9
+
+[node name="NewGame" type="Node2D"]
+script = ExtResource("1_uuhic")
+
+[node name="spawning_area" parent="." instance=ExtResource("1_tcpe8")]
+position = Vector2(271, 156)
+
+[node name="SpawnArea01" type="Path2D" parent="."]
+position = Vector2(-12.5568, -18.1447)
+scale = Vector2(1.05682, 1.09211)
+curve = SubResource("Curve2D_vwdx8")
+
+[node name="PathToSpawn" type="PathFollow2D" parent="SpawnArea01"]
+unique_name_in_owner = true
+position = Vector2(261, 121)
+rotation = 0.218669
