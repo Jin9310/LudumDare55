@@ -23,8 +23,12 @@ func _physics_process(delta):
 	timer -= delta
 	
 	if timer <= 0: #after timer runs out, change the state of the acolyte
-		move = !move
-		idle = !idle
+		if dead == false: #need to make sure that all movement and animations are stopped if dieing
+			move = !move
+			idle = !idle
+		else:
+			idle = false
+			move = false
 		set_random_time(3.0, 6.0)
 		change_animation()
 	
@@ -67,6 +71,4 @@ func animation_finished():
 		queue_free()
 
 func _on_timer_timeout():
-	idle = false
-	move = false
 	dead = true
