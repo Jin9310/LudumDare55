@@ -20,6 +20,7 @@ func click_anim():
 
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"):
+		%CameraAnim.play("shake") #camera shake
 		click_anim() #play click animation
 		#play click sound
 		number_of_all_clicks += 1 # count all the clicks done
