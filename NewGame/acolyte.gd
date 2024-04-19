@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 @onready var new_game: Node = get_node("/root/NewGame")
 
-#this variable will need to be stored someplace else
-@export var ak_enabled: bool = false 
-
 #acolyte states
 var move: bool = false
 var idle: bool = false
@@ -19,10 +16,10 @@ var direction: Vector2
 
 #timer for auto kill enabled > can be purchased
 var auto_kill_timer: float
-var ak_base_timer: float = 5.0 #can be updated later on as well
+var ak_base_timer: float = 2.0 #can be updated later on as well
 
 func _ready():
-	new_game.connect("auto_kill_enabled", auto_kill_enabled)
+	#new_game.connect("auto_kill_enabled", auto_kill_enabled)
 	set_random_time(3.0, 6.0) #set some basic timer
 	direction = Vector2.RIGHT.rotated(randf_range(0, TAU)) #set some basic direction
 	$AnimationPlayer.play("spawn")
@@ -54,7 +51,7 @@ func _physics_process(delta):
 		die_now()
 	
 	#autokill update purchased
-	if ak_enabled:
+	if GameManager.auto_kill_acolytes:
 		auto_kill_timer -= delta
 		if auto_kill_timer <= 0:
 			die_now()
@@ -96,6 +93,3 @@ func animation_finished():
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"):
 		dead = true
-
-func auto_kill_enabled():
-	ak_enabled = true

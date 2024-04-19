@@ -83,6 +83,10 @@ config/icon="res://LudumDare55.png"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+GameManager="*res://game_manager.gd"
+
 [display]
 
 window/size/viewport_width=576

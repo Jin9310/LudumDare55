@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://egtp36jotad5"]
+[gd_scene load_steps=15 format=3 uid="uid://egtp36jotad5"]
 
 [ext_resource type="PackedScene" uid="uid://cnx0gji3v8ncm" path="res://PrefabedScenes/object_prefab.tscn" id="1_l0vk0"]
 [ext_resource type="Script" path="res://Scenes/spawning_area.gd" id="2_tkf8a"]
 [ext_resource type="Texture2D" uid="uid://ct54p3ksuy446" path="res://Art/SourceFiles/summoning_circle-Sheet.png" id="3_qxyau"]
+[ext_resource type="PackedScene" uid="uid://b3eb5scvihtsg" path="res://UI/menu_ui.tscn" id="4_8sqme"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mnjiw"]
 radius = 24.0
@@ -262,5 +263,11 @@ libraries = {
 "": SubResource("AnimationLibrary_1xl53")
 }
 autoplay = "idle"
+
+[node name="menu_ui" parent="." index="4" instance=ExtResource("4_8sqme")]
+offset_left = -130.0
+offset_top = -25.0
+offset_right = -130.0
+offset_bottom = -25.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

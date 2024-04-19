@@ -3,13 +3,10 @@ extends Area2D
 signal spawn_basic_minion
 
 @onready var animPlayer = $AnimationPlayer
-#@onready var game: Node = get_node("/root/Game")
 
 @export var number_of_all_clicks: int = 0
 var number_of_clicks: int
 var clicks_to_spawn: int = 2
-
-@export var screen_shake: bool = true
 
 func _ready():
 	number_of_clicks = clicks_to_spawn
@@ -19,7 +16,7 @@ func click_anim():
 
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"):
-		if screen_shake: #screen shake enabler > prepared for UI where I want users to choose if screenshake is allowed or not
+		if GameManager.screen_shake: #screen shake enabler > prepared for UI where I want users to choose if screenshake is allowed or not
 			cam_shake() #camera shake
 		click_anim() #play click animation
 		#play click sound
