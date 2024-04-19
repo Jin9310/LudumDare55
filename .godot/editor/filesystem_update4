@@ -1,6 +1,8 @@
-res://Scenes/spawning_area.tscn
-res://Scenes/spawning_area.gd
 res://GameScene/game.tscn
 res://Scenes/basic_minion.tscn
+res://Scenes/spawning_area.tscn
 res://NewGame/new_game.tscn
 res://NewGame/acolyte.tscn
+res://Scenes/spawning_area.gd
+res://NewGame/acolyte.gd
+res://NewGame/new_game.gd
