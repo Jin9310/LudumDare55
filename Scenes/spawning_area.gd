@@ -8,8 +8,25 @@ signal spawn_basic_minion
 var number_of_clicks: int
 var clicks_to_spawn: int = 2
 
+#automatic clicking 
+var click_timer: float
+var click_timer_base: float = 3.0
+
+
 func _ready():
 	number_of_clicks = clicks_to_spawn
+	click_timer = click_timer_base
+
+func _physics_process(delta):
+	if GameManager.auto_click:
+		click_timer -= delta
+		if click_timer <= 0:
+			if GameManager.screen_shake:
+				cam_shake()
+			emit_signal("spawn_basic_minion")
+			click_anim()
+			click_timer = click_timer_base
+
 
 func click_anim():
 	animPlayer.play("click")
@@ -37,3 +54,4 @@ func cam_shake():
 
 func shake_ended(): #this is to make sure that camera ends in the correct position after shake
 	%CameraAnim.play("idle")
+

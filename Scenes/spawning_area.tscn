@@ -265,9 +265,9 @@ libraries = {
 autoplay = "idle"
 
 [node name="menu_ui" parent="." index="4" instance=ExtResource("4_8sqme")]
-offset_left = -130.0
-offset_top = -25.0
-offset_right = -130.0
-offset_bottom = -25.0
+offset_left = -135.0
+offset_top = -28.0
+offset_right = -135.0
+offset_bottom = -28.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

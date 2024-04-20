@@ -16,7 +16,7 @@ var direction: Vector2
 
 #timer for auto kill enabled > can be purchased
 var auto_kill_timer: float
-var ak_base_timer: float = 2.0 #can be updated later on as well
+var ak_base_timer: float = 10.0 #can be updated later on as well
 
 func _ready():
 	#new_game.connect("auto_kill_enabled", auto_kill_enabled)
