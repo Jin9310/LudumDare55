@@ -1,7 +1,9 @@
 extends Node2D
 
+signal auto_kill_enabled
+
 #autokill enabled needs to be done in a different manner
-#autokill is handled in singleton
+#autokill is handled in a singleton
 
 @onready var new_game: Node = get_node("/root/NewGame/spawning_area")
 
@@ -14,8 +16,7 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("auto_kill"): #this needs to be connected to the UI
-		GameManager.auto_kill_acolytes = true
-		#emit_signal("auto_kill_enabled") # rework this into > kill all acolytes
+		emit_signal("auto_kill_enabled") # rework this into > kill all acolytes
 
 func spawn_minion():
 	spawn_acolyte(acolytes_spawn_at_one_time)

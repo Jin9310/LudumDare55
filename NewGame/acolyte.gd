@@ -11,19 +11,18 @@ var dead: bool = false
 var timer: float
 var base_time: float
 var random_time: float
-#set different direction where acoly will move next
+#set different direction where acolyte will move next
 var direction: Vector2
 
 #timer for auto kill enabled > can be purchased
 var auto_kill_timer: float
-var ak_base_timer: float = 10.0 #can be updated later on as well
 
 func _ready():
-	#new_game.connect("auto_kill_enabled", auto_kill_enabled)
+	new_game.connect("auto_kill_enabled", auto_kill_enabled)
 	set_random_time(3.0, 6.0) #set some basic timer
 	direction = Vector2.RIGHT.rotated(randf_range(0, TAU)) #set some basic direction
 	$AnimationPlayer.play("spawn")
-	auto_kill_timer = ak_base_timer
+	auto_kill_timer = GameManager.auto_kill_base_timer
 
 func _physics_process(delta):
 	
@@ -88,8 +87,12 @@ func animation_finished():
 		idle = true
 	else:
 		#delete acolyte if death animation is done
+		GameManager.kills += 1
 		queue_free()
 
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"):
 		dead = true
+
+func auto_kill_enabled():
+	dead = true

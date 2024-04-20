@@ -151,6 +151,8 @@ _data = {
 }
 
 [node name="acolyte" instance=ExtResource("1_i2siv")]
+z_as_relative = false
+y_sort_enabled = true
 input_pickable = true
 script = ExtResource("2_qjnyj")
 

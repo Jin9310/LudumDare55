@@ -5,6 +5,6 @@ res://NewGame/new_game.tscn
 res://NewGame/acolyte.tscn
 res://UI/menu_ui.tscn
 res://game_manager.gd
-res://Scenes/spawning_area.gd
-res://UI/menu_ui.gd
 res://NewGame/acolyte.gd
+res://NewGame/new_game.gd
+res://Scenes/spawning_area.gd

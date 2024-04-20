@@ -6,16 +6,14 @@ signal spawn_basic_minion
 
 @export var number_of_all_clicks: int = 0
 var number_of_clicks: int
-var clicks_to_spawn: int = 2
+var clicks_to_spawn: int = 2 #can be upgraded
 
 #automatic clicking 
 var click_timer: float
-var click_timer_base: float = 3.0
-
 
 func _ready():
 	number_of_clicks = clicks_to_spawn
-	click_timer = click_timer_base
+	click_timer = GameManager.click_timer_base
 
 func _physics_process(delta):
 	if GameManager.auto_click:
@@ -25,7 +23,7 @@ func _physics_process(delta):
 				cam_shake()
 			emit_signal("spawn_basic_minion")
 			click_anim()
-			click_timer = click_timer_base
+			click_timer = GameManager.click_timer_base
 
 
 func click_anim():
