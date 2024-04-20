@@ -28,3 +28,4 @@ func spawn_acolyte(count: int):
 		new_acolyte.global_position = %PathToSpawn.global_position
 		add_child(new_acolyte)
 		acolytes_spawned += 1 #count all spawned acolytes
+		GameManager.current_minion_count += 1

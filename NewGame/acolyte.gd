@@ -88,6 +88,7 @@ func animation_finished():
 	else:
 		#delete acolyte if death animation is done
 		GameManager.kills += 1
+		GameManager.current_minion_count -= 1
 		queue_free()
 
 func _on_input_event(viewport, event, shape_idx):

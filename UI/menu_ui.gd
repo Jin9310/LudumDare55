@@ -1,6 +1,7 @@
 extends Control
 
-
+func _process(delta):
+	%minion_count.text = str(GameManager.current_minion_count)
 
 func _on_auto_kill_toggled(toggled_on):
 	GameManager.auto_kill_acolytes = !GameManager.auto_kill_acolytes
