@@ -86,6 +86,7 @@ buses/default_bus_layout=""
 [autoload]
 
 GameManager="*res://game_manager.gd"
+Hud="*res://HUD/hud.tscn"
 
 [display]
 

@@ -1,10 +1,9 @@
-res://Scenes/spawning_area.tscn
-res://game_manager.gd
-res://NewGame/new_game.tscn
-res://NewGame/new_game.gd
-res://NewGame/acolyte.tscn
-res://NewGame/acolyte.gd
-res://UI/menu_ui.tscn
-res://UI/menu_ui.gd
 res://GameScene/game.tscn
 res://Scenes/basic_minion.tscn
+res://Scenes/spawning_area.tscn
+res://NewGame/new_game.tscn
+res://NewGame/acolyte.tscn
+res://UI/menu_ui.tscn
+res://MainMenu/main_menu.tscn
+res://Scenes/spawning_area.gd
+res://HUD/hud.tscn

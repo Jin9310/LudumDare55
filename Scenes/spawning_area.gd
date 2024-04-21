@@ -25,7 +25,6 @@ func _physics_process(delta):
 			click_anim()
 			click_timer = GameManager.click_timer_base
 
-
 func click_anim():
 	animPlayer.play("click")
 
