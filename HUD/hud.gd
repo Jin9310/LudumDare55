@@ -8,9 +8,15 @@ var auto_kill_price: float = 30.0
 
 
 func _process(delta):
+	
+	var rounded_money = gm.usable_money
+	
 	%alive.text = "Alive: " + str(gm.current_minion_count)
 	%deaths.text = "Kills: " + str(gm.kills)
-	%money.text = "Money: " + str(gm.usable_money)
+	%money.text = "Money: " + "%.2f" % rounded_money
+	
+	GameManager.acolytes_spawn_at_one_time = %BonusSpawn.value
+	GameManager.kill_money_multiplicator = %BonusMoney.value
 
 func _on_screen_shake_pressed():
 	gm.screen_shake = !gm.screen_shake

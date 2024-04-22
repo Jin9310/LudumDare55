@@ -11,6 +11,9 @@ extends Node
 
 @export var current_minion_count: int
 
+#SPAWNING
+@export var acolytes_spawn_at_one_time: int = 1
+
 
 #MONEY
 @export var usable_money: float

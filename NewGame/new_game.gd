@@ -8,7 +8,6 @@ signal auto_kill_enabled
 @onready var new_game: Node = get_node("/root/NewGame/spawning_area")
 
 #new Acolytes
-var acolytes_spawn_at_one_time: int = 1
 @export var acolytes_spawned: int = 0
 
 func _ready():
@@ -19,7 +18,7 @@ func _physics_process(delta):
 		emit_signal("auto_kill_enabled") # rework this into > kill all acolytes
 
 func spawn_minion():
-	spawn_acolyte(acolytes_spawn_at_one_time)
+	spawn_acolyte(GameManager.acolytes_spawn_at_one_time)
 
 func spawn_acolyte(count: int):
 	for i in range(count):

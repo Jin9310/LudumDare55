@@ -1,11 +1,7 @@
-res://HUD/hud.tscn
 res://Scenes/spawning_area.tscn
 res://NewGame/new_game.tscn
 res://NewGame/acolyte.tscn
-res://UI/menu_ui.tscn
-res://MainMenu/main_menu.tscn
-res://game_manager.gd
+res://HUD/hud.tscn
 res://HUD/hud.gd
-res://UI/menu_ui.gd
-res://Scenes/spawning_area.gd
-res://NewGame/acolyte.gd
+res://game_manager.gd
+res://NewGame/new_game.gd
