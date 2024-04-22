@@ -85,10 +85,11 @@ func animation_finished():
 	if dead != true:
 		$AnimationPlayer.play("idle")
 		idle = true
-	else:
+	else:# here should be everything that happens after minion is dead
 		#delete acolyte if death animation is done
 		GameManager.kills += 1
 		GameManager.current_minion_count -= 1
+		GameManager.usable_money += 1 * GameManager.kill_money_multiplicator
 		queue_free()
 
 func _on_input_event(viewport, event, shape_idx):

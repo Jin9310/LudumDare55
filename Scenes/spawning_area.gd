@@ -16,27 +16,34 @@ func _ready():
 	click_timer = GameManager.click_timer_base
 
 func _physics_process(delta):
-	if GameManager.auto_click:
+	#auto clicking
+	if GameManager.auto_click && GameManager.current_minion_count < 100:
 		click_timer -= delta
 		if click_timer <= 0:
-			if GameManager.screen_shake:
+			if GameManager.screen_shake: #do a screenshake even after automatick click
 				cam_shake()
 			emit_signal("spawn_basic_minion")
 			click_anim()
+			#earn money
+			GameManager.usable_money += 1 * GameManager.click_money_multiplicator
+			#base timer can be updated so the auto clicks are faster
 			click_timer = GameManager.click_timer_base
 
 func click_anim():
 	animPlayer.play("click")
 
 func _on_input_event(viewport, event, shape_idx):
-	if Input.is_action_just_pressed("mouse_click"):
+	if Input.is_action_just_pressed("mouse_click"): #manual clicking
+		#earn money even if nothing is spawned?
+		GameManager.usable_money += 1 * GameManager.click_money_multiplicator
+		##
 		if GameManager.screen_shake: #screen shake enabler > prepared for UI where I want users to choose if screenshake is allowed or not
 			cam_shake() #camera shake
 		click_anim() #play click animation
 		#play click sound
 		number_of_all_clicks += 1 # count all the clicks done
 		number_of_clicks -= 1
-		if number_of_clicks <= 0: #spawn a minion
+		if number_of_clicks <= 0 && GameManager.current_minion_count < 100: #spawn a minion and make sure thehe is no more than 100 active acolytes at the moment
 			emit_signal("spawn_basic_minion")
 			number_of_clicks = clicks_to_spawn
 

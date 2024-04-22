@@ -1,6 +1,15 @@
-[gd_scene format=3 uid="uid://cbocvie8xbvkp"]
+[gd_scene load_steps=5 format=3 uid="uid://cbocvie8xbvkp"]
+
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_q15ox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rf5e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gggxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gbqn"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_q15ox")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -18,19 +27,39 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+[node name="screen_shake" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8rf5e")
 text = "ScreenShake"
 
-[node name="CheckButton2" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+[node name="auto_click" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gggxn")
 text = "Auto click"
 
-[node name="CheckButton3" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+[node name="auto_kill" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4gbqn")
 text = "Auto kill"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="alive" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "123456"
 fit_content = true
+
+[node name="money" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "123456"
+fit_content = true
+
+[node name="deaths" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "123456"
+fit_content = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/screen_shake" to="." method="_on_screen_shake_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/auto_click" to="." method="_on_auto_click_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/auto_kill" to="." method="_on_auto_kill_pressed"]

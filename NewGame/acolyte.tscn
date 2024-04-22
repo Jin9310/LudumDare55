@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://NewGame/acolyte.gd" id="2_qjnyj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5b5f"]
-radius = 3.0
-height = 8.0
+radius = 4.0
+height = 10.0
 
 [sub_resource type="Animation" id="Animation_wu2ls"]
 length = 0.001
