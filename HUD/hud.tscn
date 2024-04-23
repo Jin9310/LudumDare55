@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbocvie8xbvkp"]
+[gd_scene load_steps=7 format=3 uid="uid://cbocvie8xbvkp"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_q15ox"]
 
@@ -7,6 +7,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gggxn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gbqn"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ortxx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_qet3l"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_q15ox")
@@ -60,17 +64,31 @@ layout_mode = 2
 text = "123456"
 fit_content = true
 
+[node name="BonusSpawn_txt" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "123456"
+fit_content = true
+
 [node name="BonusSpawn" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_icons/tick = SubResource("ImageTexture_ortxx")
 min_value = 1.0
 max_value = 10.0
 value = 1.0
 tick_count = 10
 
+[node name="BonusMoney_txt" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "123456"
+fit_content = true
+
 [node name="BonusMoney" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_icons/tick = SubResource("ImageTexture_qet3l")
 min_value = 0.1
 max_value = 1.0
 step = 0.1

@@ -17,6 +17,10 @@ func _process(delta):
 	
 	GameManager.acolytes_spawn_at_one_time = %BonusSpawn.value
 	GameManager.kill_money_multiplicator = %BonusMoney.value
+	
+	%BonusSpawn_txt.text = "Spawns per click: " + str(%BonusSpawn.value)
+	%BonusMoney_txt.text = "Money per kill: " + str(%BonusMoney.value)
+
 
 func _on_screen_shake_pressed():
 	gm.screen_shake = !gm.screen_shake

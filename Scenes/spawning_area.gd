@@ -6,7 +6,7 @@ signal spawn_basic_minion
 
 @export var number_of_all_clicks: int = 0
 var number_of_clicks: int
-var clicks_to_spawn: int = 2 #can be upgraded
+var clicks_to_spawn: int = 1 #can be upgraded
 
 #automatic clicking 
 var click_timer: float

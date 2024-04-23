@@ -3,5 +3,4 @@ res://NewGame/new_game.tscn
 res://NewGame/acolyte.tscn
 res://HUD/hud.tscn
 res://HUD/hud.gd
-res://game_manager.gd
-res://NewGame/new_game.gd
+res://Scenes/spawning_area.gd
