@@ -3,9 +3,15 @@ extends CanvasLayer
 @onready var gm: Node = get_node("/root/GameManager")
 
 ##HUD to hold the prices??
-var auto_click_price: float = 20.0
-var auto_kill_price: float = 30.0
-
+## fixed prices ##
+var auto_click_price: float = 0 #one time price
+var auto_kill_price: float = 0 #one time price
+var kill_all_button_price: float = 0
+### prices that scale ###
+var faster_auto_kill_price: float = 0 
+var faster_auto_click_price: float = 0
+var kill_money_upgrade: float = 0
+var click_money_upgrade: float = 0
 
 func _process(delta):
 	
@@ -24,7 +30,6 @@ func _process(delta):
 
 func _on_screen_shake_pressed():
 	gm.screen_shake = !gm.screen_shake
-
 
 func _on_auto_click_pressed():
 	if gm.usable_money >= auto_click_price:
