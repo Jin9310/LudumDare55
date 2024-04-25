@@ -3,19 +3,27 @@
 [ext_resource type="Script" path="res://UI/updates_ui.gd" id="1_8v87y"]
 
 [node name="UpdatesUI" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_8v87y")
 
-[node name="Panel" type="Panel" parent="."]
-unique_name_in_owner = true
-anchors_preset = -1
-anchor_left = 0.465278
-anchor_top = 0.438272
-anchor_right = 0.534722
-anchor_bottom = 0.561728
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(20, 20)
-metadata/_edit_use_anchors_ = true
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0.105882)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "B"

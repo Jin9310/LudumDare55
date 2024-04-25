@@ -5,12 +5,8 @@ func _process(delta):
 	#rotate_with_it()
 
 func rotate_with_it():
-	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(%Panel, "rotation", 1.0, .1).as_relative()
+	var tween: Tween = get_tree().create_tween().set_loops()
+	tween.tween_property(%Panel, "rotation_degrees", 20, .5).as_relative().set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_interval(1.0)
-	tween.tween_property(%Panel, "rotation", -1.0, .1).as_relative()
+	tween.tween_property(%Panel, "rotation_degrees", -40, .5).as_relative()
 	
-
-
-func _on_panel_mouse_entered():
-	rotate_with_it()

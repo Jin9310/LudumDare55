@@ -50,6 +50,6 @@ func _on_auto_kill_pressed():
 func show_hide_debug():
 	var tween: Tween = get_tree().create_tween()
 	if debug_panel == true:
-		tween.tween_property(%MarginContainer, "position", Vector2(0,0), .5)
+		tween.tween_property(%MarginContainer, "position", Vector2(0,0), .5).set_trans(Tween.TRANS_CUBIC)
 	else:
 		tween.tween_property(%MarginContainer, "position", Vector2(-200,0), .5)
