@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var gm: Node = get_node("/root/GameManager")
 
+var debug_panel: bool = false
+
+
 ##HUD to hold the prices??
 ## fixed prices ##
 var auto_click_price: float = 0 #one time price
@@ -14,6 +17,10 @@ var kill_money_upgrade: float = 0
 var click_money_upgrade: float = 0
 
 func _process(delta):
+	
+	if Input.is_action_just_pressed("debug_panel"): #Debug panel for testing
+		debug_panel = !debug_panel #press H to show/hide debug
+		show_hide_debug()
 	
 	var rounded_money = gm.usable_money
 	
@@ -40,3 +47,10 @@ func _on_auto_kill_pressed():
 	if gm.usable_money >= auto_kill_price:
 		gm.auto_kill_acolytes = !gm.auto_kill_acolytes
 		gm.usable_money -= auto_kill_price
+
+func show_hide_debug():
+	var tween: Tween = get_tree().create_tween()
+	if debug_panel == true:
+		tween.tween_property(%MarginContainer, "position", Vector2(0,0), .5)
+	else:
+		tween.tween_property(%MarginContainer, "position", Vector2(-200,0), .5)

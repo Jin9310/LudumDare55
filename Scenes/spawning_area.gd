@@ -77,7 +77,6 @@ func auto_click_anim():
 	animPlayer.play("auto_click")
 
 func animation_ended():
-	print("animation ended")
 	auto_anim_start_ended= true
 	auto_click_anim()
 
