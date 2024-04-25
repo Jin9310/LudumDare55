@@ -1,10 +1,11 @@
+Panel
+CanvasLayer
 HSlider
 RichTextLabel
 CheckButton
 OptionButton
 VBoxContainer
 MarginContainer
-CanvasLayer
 TextureRect
 Label
 Button
@@ -12,4 +13,3 @@ TextureButton
 CheckBox
 NinePatchRect
 ColorRect
-AnimationPlayer

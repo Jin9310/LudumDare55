@@ -4,7 +4,6 @@ extends CanvasLayer
 
 var debug_panel: bool = false
 
-
 ##HUD to hold the prices??
 ## fixed prices ##
 var auto_click_price: float = 0 #one time price
