@@ -12,7 +12,7 @@ func _process(delta):
 func show_hide_panel():
 	var tween: Tween = get_tree().create_tween()
 	if static_upgrades_panel == true:
-		tween.tween_property(%MarginContainer, "position", Vector2(431,0), 0.5)#.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(%MarginContainer, "position", Vector2(200,0), 0.5)#.set_trans(Tween.TRANS_CUBIC)
 	else:
 		tween.tween_property(%MarginContainer, "position", Vector2(543,0), 0.5)
 
@@ -24,5 +24,5 @@ func hide_others():
 	var tween: Tween = get_tree().create_tween()
 	if SpawnUpgradesUi.static_upgrades_panel == true:
 		tween.tween_property(%MarginContainer, "position", Vector2(580,0), 0.5)
-	elif StaticUpgradesUi.static_upgrades_panel == false:
+	elif SpawnUpgradesUi.static_upgrades_panel == false:
 		tween.tween_property(%MarginContainer, "position", Vector2(543,0), 0.5)
