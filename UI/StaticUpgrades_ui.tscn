@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt5ry8qs3tcbc"]
+
+[ext_resource type="Script" path="res://UI/StaticUpgrades_ui.gd" id="1_3mr27"]
+
+[node name="StaticUpgrades_ui" type="CanvasLayer"]
+script = ExtResource("1_3mr27")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 543.0
+offset_right = 543.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="static_upgrades_btn" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "B"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="auto_click_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Auto click"
+
+[node name="auto_kill_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Auto kill"
+
+[node name="screenshake_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Screenshake"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="auto_click_label_txt" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Auto click info	"
+
+[node name="auto_kill_label_txt2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Auto kill info	"
+
+[node name="screenshake_label_txt3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "screenshake info"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/static_upgrades_btn" to="." method="_on_static_upgrades_btn_pressed"]

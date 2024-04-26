@@ -1,7 +1,9 @@
+Label
+HBoxContainer
 Button
-TextureButton
-MarginContainer
 VBoxContainer
+MarginContainer
+TextureButton
 ColorRect
 Panel
 CanvasLayer
@@ -10,5 +12,3 @@ RichTextLabel
 CheckButton
 OptionButton
 TextureRect
-Label
-CheckBox

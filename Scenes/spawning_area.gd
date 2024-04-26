@@ -14,7 +14,7 @@ var click_timer: float
 var auto_anim_start_ended: bool = false
 
 func _ready():
-	
+	%CameraAnim.play("idle")
 	number_of_clicks = clicks_to_spawn
 	click_timer = GameManager.click_timer_base
 
