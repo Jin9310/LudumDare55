@@ -32,6 +32,11 @@ func _process(delta):
 	
 	%BonusSpawn_txt.text = "Spawns per click: " + str(%BonusSpawn.value)
 	%BonusMoney_txt.text = "Money per kill: " + str(%BonusMoney.value)
+	
+	#the following will be disabled but changes are visible on the UI
+	%screen_shake.button_pressed = gm.screen_shake
+	%auto_click.button_pressed = gm.auto_click
+	%auto_kill.button_pressed = gm.auto_kill_acolytes
 
 
 func _on_screen_shake_pressed():

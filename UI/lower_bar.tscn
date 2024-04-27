@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbnw8qa8ugp6g"]
+[gd_scene load_steps=3 format=3 uid="uid://bbnw8qa8ugp6g"]
 
 [ext_resource type="Texture2D" uid="uid://vfpt1m1typvx" path="res://Art/coin/coin.png" id="1_hfrvc"]
+[ext_resource type="Script" path="res://UI/lower_bar.gd" id="1_qhl0l"]
 
 [node name="LowerBar" type="CanvasLayer"]
+script = ExtResource("1_qhl0l")
 
 [node name="LowerMargin" type="MarginContainer" parent="."]
 anchors_preset = -1
-anchor_top = 0.864198
+anchor_top = 0.901235
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -16,10 +18,12 @@ metadata/_edit_use_anchors_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="LowerMargin"]
 layout_mode = 2
 
-[node name="Coin_image_btn" type="TextureButton" parent="LowerMargin/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="LowerMargin/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_hfrvc")
+texture = ExtResource("1_hfrvc")
+stretch_mode = 2
 
 [node name="Usable_mone_lbl" type="Label" parent="LowerMargin/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "123456"

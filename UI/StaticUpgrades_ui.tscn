@@ -27,7 +27,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "B"
+text = "<"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -41,6 +41,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="auto_click_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -76,3 +77,6 @@ layout_mode = 2
 text = "screenshake info"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/static_upgrades_btn" to="." method="_on_static_upgrades_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/auto_click_btn" to="." method="_on_auto_click_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/auto_kill_btn" to="." method="_on_auto_kill_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/screenshake_btn" to="." method="_on_screenshake_btn_pressed"]

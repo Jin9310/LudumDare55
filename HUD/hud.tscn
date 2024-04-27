@@ -35,16 +35,20 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
 [node name="screen_shake" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8rf5e")
+disabled = true
 text = "ScreenShake"
 
 [node name="auto_click" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gggxn")
 text = "Auto click"
 
 [node name="auto_kill" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4gbqn")
 text = "Auto kill"

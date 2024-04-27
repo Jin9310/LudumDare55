@@ -1,3 +1,4 @@
+TextureRect
 TextureButton
 Label
 HBoxContainer
@@ -11,4 +12,3 @@ HSlider
 RichTextLabel
 CheckButton
 OptionButton
-TextureRect
