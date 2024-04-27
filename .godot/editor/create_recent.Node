@@ -1,12 +1,12 @@
+TextureButton
 Label
 HBoxContainer
+MarginContainer
+CanvasLayer
 Button
 VBoxContainer
-MarginContainer
-TextureButton
 ColorRect
 Panel
-CanvasLayer
 HSlider
 RichTextLabel
 CheckButton

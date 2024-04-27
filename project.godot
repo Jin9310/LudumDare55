@@ -89,6 +89,7 @@ GameManager="*res://game_manager.gd"
 Hud="*res://HUD/hud.tscn"
 StaticUpgradesUi="*res://UI/StaticUpgrades_ui.tscn"
 SpawnUpgradesUi="*res://UI/spawn_upgrades_ui.tscn"
+LowerBar="*res://UI/lower_bar.tscn"
 
 [display]
 
