@@ -14,6 +14,7 @@ var faster_auto_kill_price: float = 0
 var faster_auto_click_price: float = 0
 var kill_money_upgrade: float = 0
 var click_money_upgrade: float = 0
+var spawn_more_minions_upgrade: float = 0
 
 func _process(delta):
 	
@@ -27,8 +28,8 @@ func _process(delta):
 	%deaths.text = "Kills: " + str(gm.kills)
 	%money.text = "Money: " + "%.2f" % rounded_money
 	
-	GameManager.acolytes_spawn_at_one_time = %BonusSpawn.value
-	GameManager.kill_money_multiplicator = %BonusMoney.value
+	#GameManager.acolytes_spawn_at_one_time = %BonusSpawn.value
+	#GameManager.kill_money_multiplicator = %BonusMoney.value
 	
 	%BonusSpawn_txt.text = "Spawns per click: " + str(%BonusSpawn.value)
 	%BonusMoney_txt.text = "Money per kill: " + str(%BonusMoney.value)

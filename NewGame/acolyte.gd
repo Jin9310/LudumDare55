@@ -19,6 +19,7 @@ var auto_kill_timer: float
 
 func _ready():
 	new_game.connect("auto_kill_enabled", auto_kill_enabled)
+	SpawnUpgradesUi.connect("kill_all_pressed", auto_kill_enabled)
 	set_random_time(3.0, 6.0) #set some basic timer
 	direction = Vector2.RIGHT.rotated(randf_range(0, TAU)) #set some basic direction
 	$AnimationPlayer.play("spawn")

@@ -45,12 +45,15 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+tooltip_text = "Automatic summoning over time"
 text = "Auto click"
 
 [node name="auto_kill_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+tooltip_text = "Kills minions over time"
 text = "Auto kill"
 
 [node name="screenshake_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
