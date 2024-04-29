@@ -14,11 +14,27 @@ func _process(delta):
 	else:
 		%static_upgrades_btn.text = ">"
 	
+	
 	if GameManager.auto_click == true:
 		%auto_click_btn.tooltip_text = "Already purchased"
 	
 	if GameManager.auto_kill_acolytes == true:
 		%auto_click_btn.tooltip_text = "Already purchased"
+	
+	if Input.is_action_just_pressed("rmb") && static_upgrades_panel == true:
+		static_upgrades_panel = false
+		var tween: Tween = get_tree().create_tween()
+		tween.tween_property(%SpawnMargin, "position", Vector2(580,40), 0.5)
+	
+	
+	##disable buttons that are not purchaseable yet
+	#if GameManager.usable_money >= UpgradesManager.auto_click_price:
+	#	%auto_click_btn.disabled = true
+	
+	#if GameManager.usable_money >= UpgradesManager.auto_kill_price:
+	#	%auto_kill_btn.disabled = true
+
+
 
 
 func show_hide_panel():

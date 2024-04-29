@@ -1,14 +1,14 @@
+CanvasLayer
+ProgressBar
+Button
 TextureRect
 TextureButton
 Label
 HBoxContainer
 MarginContainer
-CanvasLayer
-Button
 VBoxContainer
 ColorRect
 Panel
 HSlider
 RichTextLabel
 CheckButton
-OptionButton

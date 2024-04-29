@@ -21,6 +21,12 @@ func _process(delta):
 		%static_upgrades_btn.text = "<"
 	else:
 		%static_upgrades_btn.text = ">"
+	
+	if Input.is_action_just_pressed("rmb") && static_upgrades_panel == true:
+		static_upgrades_panel = false
+		var tween: Tween = get_tree().create_tween()
+		tween.tween_property(%SpawnMargin, "position", Vector2(580,40), 0.5)
+
 
 func show_hide_panel():
 	var tween: Tween = get_tree().create_tween()

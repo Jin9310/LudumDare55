@@ -45,12 +45,14 @@ text = "ScreenShake"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gggxn")
+disabled = true
 text = "Auto click"
 
 [node name="auto_kill" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4gbqn")
+disabled = true
 text = "Auto kill"
 
 [node name="alive" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
