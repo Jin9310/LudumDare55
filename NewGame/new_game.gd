@@ -12,6 +12,7 @@ signal auto_kill_enabled
 
 func _ready():
 	new_game.connect("spawn_basic_minion", spawn_minion)
+	#new_game.connect("show_me_coins", spawn_coin)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("auto_kill"): #this needs to be connected to the UI
@@ -28,3 +29,9 @@ func spawn_acolyte(count: int):
 		add_child(new_acolyte)
 		acolytes_spawned += 1 #count all spawned acolytes
 		GameManager.current_minion_count += 1
+
+func spawn_coin():
+	var new_coin = preload("res://Scenes/coin_animation.tscn").instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	new_coin.global_position = %PathFollow2D.global_position
+	add_child(new_coin)

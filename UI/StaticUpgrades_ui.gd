@@ -24,7 +24,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("rmb") && static_upgrades_panel == true:
 		static_upgrades_panel = false
 		var tween: Tween = get_tree().create_tween()
-		tween.tween_property(%SpawnMargin, "position", Vector2(580,40), 0.5)
+		tween.tween_property(%MarginContainer, "position", Vector2(580,40), 0.5)
 	
 	
 	##disable buttons that are not purchaseable yet
@@ -69,3 +69,10 @@ func _on_auto_kill_btn_pressed():
 
 func _on_screenshake_btn_pressed():
 	GameManager.screen_shake = !GameManager.screen_shake
+
+
+func _on_a_click_btn_pressed():
+	if GameManager.usable_money >= UpgradesManager.auto_click_price:
+		GameManager.auto_click = true
+		#%a_click_btn.disabled = true
+		GameManager.usable_money -= UpgradesManager.auto_click_price

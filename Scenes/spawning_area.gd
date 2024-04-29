@@ -1,6 +1,7 @@
 extends Area2D
 
 signal spawn_basic_minion
+#signal show_me_coins
 
 @onready var animPlayer = $AnimationPlayer
 
@@ -32,6 +33,7 @@ func _physics_process(delta):
 				auto_click_anim()
 			#earn money
 			GameManager.usable_money += 1 * GameManager.click_money_multiplicator
+			#emit_signal("show_me_coins")
 			#base timer can be updated so the auto clicks are faster
 			click_timer = GameManager.click_timer_base
 	
@@ -47,6 +49,7 @@ func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"): #manual clicking
 		#earn money even if nothing is spawned?
 		GameManager.usable_money += 1 * GameManager.click_money_multiplicator
+		#emit_signal("show_me_coins")
 		##
 		if GameManager.screen_shake: #screen shake enabler > prepared for UI where I want users to choose if screenshake is allowed or not
 			cam_shake() #camera shake
@@ -79,5 +82,4 @@ func auto_click_anim():
 func animation_ended():
 	auto_anim_start_ended= true
 	auto_click_anim()
-
 

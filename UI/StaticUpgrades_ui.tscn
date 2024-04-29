@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt5ry8qs3tcbc"]
+[gd_scene load_steps=7 format=3 uid="uid://bt5ry8qs3tcbc"]
 
 [ext_resource type="Script" path="res://UI/StaticUpgrades_ui.gd" id="1_3mr27"]
+[ext_resource type="Texture2D" uid="uid://bhko02bcilp0e" path="res://Art/SourceFiles/button_template_normal.png" id="2_a3ebx"]
+[ext_resource type="Texture2D" uid="uid://d2eqgg1ci7ubv" path="res://Art/SourceFiles/button_template_pressed.png" id="3_k5usl"]
+[ext_resource type="Texture2D" uid="uid://bdveju1gpg811" path="res://Art/SourceFiles/button_template_hover.png" id="4_ntmn0"]
+[ext_resource type="Texture2D" uid="uid://deyew52cncw4e" path="res://Art/SourceFiles/button_template_disabled.png" id="5_x1vm8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy3yj"]
 
@@ -36,12 +40,14 @@ text = "<"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="auto_click_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -68,6 +74,16 @@ size_flags_vertical = 0
 tooltip_text = "Turn ON/OFF screenshake"
 text = "Screenshake"
 
+[node name="a_click_btn" type="TextureButton" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_a3ebx")
+texture_pressed = ExtResource("3_k5usl")
+texture_hover = ExtResource("4_ntmn0")
+texture_disabled = ExtResource("5_x1vm8")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
@@ -89,3 +105,4 @@ text = "screenshake info"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/auto_click_btn" to="." method="_on_auto_click_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/auto_kill_btn" to="." method="_on_auto_kill_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/screenshake_btn" to="." method="_on_screenshake_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/a_click_btn" to="." method="_on_a_click_btn_pressed"]

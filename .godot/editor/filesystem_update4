@@ -11,3 +11,6 @@ res://UI/spawn_upgrades_ui.gd
 res://UI/StaticUpgrades_ui.gd
 res://UI/lower_bar.gd
 res://NewGame/acolyte.gd
+res://Scenes/coin_animation.tscn
+res://Scenes/spawning_area.gd
+res://NewGame/new_game.gd

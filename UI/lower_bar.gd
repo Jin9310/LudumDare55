@@ -5,8 +5,6 @@ signal kill_all_pressed
 var mouse_count: int = 0
 var kill_all_active: bool = false
 
-
-
 func _process(delta):
 	%Usable_mone_lbl.text = "%.2f" % GameManager.usable_money
 	%MinionsAlive.text = str(GameManager.current_minion_count) + "/100"
