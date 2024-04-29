@@ -43,21 +43,29 @@ func hide_others(): #check if other panels are selected or not, if yes, hide thi
 
 
 func _on_better_kills_btn_pressed():
-	GameManager.kill_money_multiplicator += .1
+	if GameManager.usable_money >= UpgradesManager.kill_money_upgrade:
+		GameManager.kill_money_multiplicator += .1
+		GameManager.usable_money -= UpgradesManager.kill_money_upgrade
+		UpgradesManager.kill_money_upgrade *= 1.6
 
 func better_kills_tooltip():
-	%better_kills_btn.tooltip_text = "Upgrade money gained per kill \ncost: " + str(Hud.kill_money_upgrade) + "\ncurrent monay gain per kill: " + str(GameManager.kill_money_multiplicator)
+	%better_kills_btn.tooltip_text = "Upgrade money gained per kill \ncost: " + str(UpgradesManager.kill_money_upgrade) + "\ncurrent money gain per kill: " + str(GameManager.kill_money_multiplicator)
 
 
 func _on_more_spawns_btn_pressed():
-	GameManager.acolytes_spawn_at_one_time += 1
+	if GameManager.usable_money >= UpgradesManager.spawn_more_minions_upgrade:
+		GameManager.acolytes_spawn_at_one_time += 1
+		GameManager.usable_money -= UpgradesManager.spawn_more_minions_upgrade
+		UpgradesManager.spawn_more_minions_upgrade *= 1.6
 
 func more_spawn_tooltip():
-	%more_spawns_btn.tooltip_text = "Upgrade the amount of minions spawned per click \ncost: " + str(Hud.spawn_more_minions_upgrade) + "\ncurrently spanws " + str(GameManager.acolytes_spawn_at_one_time) + " per click"
+	%more_spawns_btn.tooltip_text = "Upgrade the amount of minions spawned per click \ncost: " + str(UpgradesManager.spawn_more_minions_upgrade) + "\ncurrently spawns " + str(GameManager.acolytes_spawn_at_one_time) + " per click"
 
 
 func _on_kill_all_btn_pressed():
-	emit_signal("kill_all_pressed")
+	if GameManager.usable_money >= UpgradesManager.kill_all_button_price:
+		emit_signal("kill_all_pressed")
+		GameManager.usable_money -= UpgradesManager.kill_all_button_price
 
 func kill_all_upgrade_tooltip():
-	%kill_all_btn.tooltip_text = "Kills all alive minions \ncurrently alive: " + str(GameManager.current_minion_count)
+	%kill_all_btn.tooltip_text = "Kills all alive minions \ncost: " + str(UpgradesManager.kill_all_button_price) + "\ncurrently alive: " + str(GameManager.current_minion_count)

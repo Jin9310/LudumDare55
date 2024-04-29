@@ -79,6 +79,7 @@ fit_content = true
 
 [node name="BonusSpawn" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_icons/tick = SubResource("ImageTexture_ortxx")
 min_value = 1.0
@@ -94,6 +95,7 @@ fit_content = true
 
 [node name="BonusMoney" type="HSlider" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_icons/tick = SubResource("ImageTexture_qet3l")
 min_value = 0.1

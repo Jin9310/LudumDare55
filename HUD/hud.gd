@@ -4,18 +4,6 @@ extends CanvasLayer
 
 var debug_panel: bool = false
 
-##HUD to hold the prices??
-## fixed prices ##
-var auto_click_price: float = 0 #one time price
-var auto_kill_price: float = 0 #one time price
-var kill_all_button_price: float = 0
-### prices that scale ###
-var faster_auto_kill_price: float = 0 
-var faster_auto_click_price: float = 0
-var kill_money_upgrade: float = 0
-var click_money_upgrade: float = 0
-var spawn_more_minions_upgrade: float = 0
-
 func _process(delta):
 	
 	if Input.is_action_just_pressed("debug_panel"): #Debug panel for testing
@@ -31,27 +19,23 @@ func _process(delta):
 	#GameManager.acolytes_spawn_at_one_time = %BonusSpawn.value
 	#GameManager.kill_money_multiplicator = %BonusMoney.value
 	
-	%BonusSpawn_txt.text = "Spawns per click: " + str(%BonusSpawn.value)
-	%BonusMoney_txt.text = "Money per kill: " + str(%BonusMoney.value)
+	%BonusSpawn_txt.text = "Spawns per click: " + str(gm.acolytes_spawn_at_one_time)
+	%BonusMoney_txt.text = "Money per kill: " + str(gm.kill_money_multiplicator)
 	
 	#the following will be disabled but changes are visible on the UI
 	%screen_shake.button_pressed = gm.screen_shake
 	%auto_click.button_pressed = gm.auto_click
 	%auto_kill.button_pressed = gm.auto_kill_acolytes
 
-
 func _on_screen_shake_pressed():
 	gm.screen_shake = !gm.screen_shake
 
 func _on_auto_click_pressed():
-	if gm.usable_money >= auto_click_price:
-		gm.auto_click = !gm.auto_click
-		gm.usable_money -= auto_click_price
+	gm.auto_click = !gm.auto_click
 
 func _on_auto_kill_pressed():
-	if gm.usable_money >= auto_kill_price:
-		gm.auto_kill_acolytes = !gm.auto_kill_acolytes
-		gm.usable_money -= auto_kill_price
+	gm.auto_kill_acolytes = !gm.auto_kill_acolytes
+
 
 func show_hide_debug():
 	var tween: Tween = get_tree().create_tween()
