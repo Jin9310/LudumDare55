@@ -6,4 +6,4 @@ res://UI/StaticUpgrades_ui.tscn
 res://UI/spawn_upgrades_ui.tscn
 res://UI/lower_bar.tscn
 res://Scenes/coin_animation.tscn
-res://Scenes/spawning_area.gd
+res://GameScene/game.tscn
