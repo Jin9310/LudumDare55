@@ -37,6 +37,10 @@ grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="ColorRect" type="ColorRect" parent="LowerMargin"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.321569)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="LowerMargin"]
 layout_mode = 2
 theme_override_constants/separation = 100
@@ -101,5 +105,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5p22m")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ixjxm")
 max_value = 250.0
 step = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="LowerMargin"]
+layout_mode = 2
 
 [connection signal="pressed" from="LowerMargin/HBoxContainer/CanvasLayer/Kill_all_btn" to="." method="_on_button_pressed"]
