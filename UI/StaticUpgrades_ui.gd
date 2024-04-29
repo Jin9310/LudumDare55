@@ -39,12 +39,17 @@ func hide_others(): #check if other panels are selected or not, if yes, hide thi
 		tween.tween_property(%MarginContainer, "position", Vector2(543,0), 0.5)
 
 func _on_auto_click_btn_pressed():
+	if GameManager.usable_money >= UpgradesManager.auto_click_price:
 		GameManager.auto_click = true
 		%auto_click_btn.disabled = true
+		GameManager.usable_money -= UpgradesManager.auto_click_price
 
 func _on_auto_kill_btn_pressed():
-	GameManager.auto_kill_acolytes = true
-	%auto_kill_btn.disabled = true
+	if GameManager.usable_money >= UpgradesManager.auto_kill_price:
+		GameManager.auto_kill_acolytes = true
+		%auto_kill_btn.disabled = true
+		GameManager.usable_money -= UpgradesManager.auto_kill_price
+
 
 func _on_screenshake_btn_pressed():
 	GameManager.screen_shake = !GameManager.screen_shake

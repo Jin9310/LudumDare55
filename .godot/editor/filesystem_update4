@@ -8,3 +8,4 @@ res://UI/lower_bar.tscn
 res://HUD/hud.gd
 res://Singletons/upgrades_manager.gd
 res://UI/spawn_upgrades_ui.gd
+res://UI/StaticUpgrades_ui.gd

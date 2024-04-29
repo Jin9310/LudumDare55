@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj8d3pqavdy3d"]
+[gd_scene load_steps=3 format=3 uid="uid://bj8d3pqavdy3d"]
 
 [ext_resource type="Script" path="res://UI/spawn_upgrades_ui.gd" id="2_eg8e7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cvd3t"]
 
 [node name="SpawnUpgrades_ui" type="CanvasLayer"]
 script = ExtResource("2_eg8e7")
@@ -29,6 +31,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cvd3t")
 text = "S"
 
 [node name="MarginContainer" type="MarginContainer" parent="SpawnMargin/HBoxContainer"]

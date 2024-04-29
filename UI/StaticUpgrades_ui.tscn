@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt5ry8qs3tcbc"]
+[gd_scene load_steps=3 format=3 uid="uid://bt5ry8qs3tcbc"]
 
 [ext_resource type="Script" path="res://UI/StaticUpgrades_ui.gd" id="1_3mr27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy3yj"]
 
 [node name="StaticUpgrades_ui" type="CanvasLayer"]
 script = ExtResource("1_3mr27")
@@ -27,6 +29,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vy3yj")
 text = "<"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
