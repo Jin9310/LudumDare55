@@ -73,3 +73,9 @@ func _on_kill_all_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.kill_all_button_price:
 		emit_signal("kill_all_pressed")
 		GameManager.usable_money -= UpgradesManager.kill_all_button_price
+
+
+func _on_clicks_btn_pressed():
+	if GameManager.usable_money >= UpgradesManager.click_money_upgrade:
+		GameManager.usable_money -= UpgradesManager.click_money_upgrade
+		UpgradesManager.click_money_upgrade *= 1.6

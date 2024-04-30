@@ -8,7 +8,7 @@ var kill_all_button_price: float
 var faster_auto_kill_price: float = 0 
 var faster_auto_click_price: float = 0
 var kill_money_upgrade: float = 10
-var click_money_upgrade: float = 10
+var click_money_upgrade: float = 20
 var spawn_more_minions_upgrade: float = 10
 
 func _process(delta):
