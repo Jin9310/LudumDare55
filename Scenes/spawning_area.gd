@@ -4,8 +4,8 @@ signal spawn_basic_minion
 #signal show_me_coins
 
 @onready var animPlayer = $AnimationPlayer
-
 @export var number_of_all_clicks: int = 0
+
 var number_of_clicks: int
 var clicks_to_spawn: int = 1 #can be upgraded
 
@@ -84,4 +84,5 @@ func animation_ended():
 	auto_click_anim()
 
 func _on_body_entered(body):
-	print("minion inside")
+	pass
+	#print("minion inside")
