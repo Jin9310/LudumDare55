@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal play_scull
+
 # 431 open position
 # 543 closed position
 
@@ -65,6 +67,7 @@ func _on_auto_kill_btn_pressed():
 		GameManager.auto_kill_acolytes = true
 		%auto_kill_btn.disabled = true
 		GameManager.usable_money -= UpgradesManager.auto_kill_price
+		emit_signal("play_scull")
 
 
 func _on_screenshake_btn_pressed():
