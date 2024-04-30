@@ -24,7 +24,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("rmb") && static_upgrades_panel == true:
 		static_upgrades_panel = false
 		var tween: Tween = get_tree().create_tween()
-		tween.tween_property(%MarginContainer, "position", Vector2(580,40), 0.5)
+		tween.tween_property(%MarginContainer, "position", Vector2(580,0), 0.5)
 	
 	
 	##disable buttons that are not purchaseable yet

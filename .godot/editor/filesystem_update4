@@ -6,3 +6,4 @@ res://NewGame/acolyte.tscn
 res://HUD/hud.tscn
 res://UI/StaticUpgrades_ui.tscn
 res://UI/lower_bar.tscn
+res://UI/StaticUpgrades_ui.gd
