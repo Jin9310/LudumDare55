@@ -83,7 +83,5 @@ func animation_ended():
 	auto_anim_start_ended= true
 	auto_click_anim()
 
-
-
 func _on_body_entered(body):
 	print("minion inside")
