@@ -1,8 +1,8 @@
+res://UI/spawn_upgrades_ui.tscn
+res://UI/spawn_upgrades_ui.gd
 res://Scenes/spawning_area.tscn
 res://NewGame/new_game.tscn
 res://NewGame/acolyte.tscn
 res://HUD/hud.tscn
 res://UI/StaticUpgrades_ui.tscn
-res://UI/spawn_upgrades_ui.tscn
 res://UI/lower_bar.tscn
-res://UI/spawn_upgrades_ui.gd

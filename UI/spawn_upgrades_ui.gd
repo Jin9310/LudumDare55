@@ -9,16 +9,13 @@ signal kill_all_pressed
 @export var static_upgrades_panel: bool = false #checking if I clicked the btn that opens the options
 
 func _ready():
-		#tooltips
+	#tooltips
 	better_kills_tooltip()
 	more_spawn_tooltip()
 
 func _process(delta):
 	show_hide_panel()
 	hide_others()
-	
-	kill_all_upgrade_tooltip()
-	
 	if static_upgrades_panel == false:
 		%static_upgrades_btn.text = "<"
 	else:
@@ -76,6 +73,3 @@ func _on_kill_all_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.kill_all_button_price:
 		emit_signal("kill_all_pressed")
 		GameManager.usable_money -= UpgradesManager.kill_all_button_price
-
-func kill_all_upgrade_tooltip():
-	%kill_all_btn.tooltip_text = "Kills all alive minions \ncost: " + str(UpgradesManager.kill_all_button_price) + "\ncurrently alive: " + str(GameManager.current_minion_count)
