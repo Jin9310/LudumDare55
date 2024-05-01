@@ -10,8 +10,8 @@ var click_money_upgrade: float = 45
 var spawn_more_minions_upgrade: float = 12
 var raise_max_amount_of_spawned: float = 150
 
-var faster_auto_spawn_price: float = 10
-var faster_auto_kill_price: float = 10
+var faster_auto_spawn_price: float = 210
+var faster_auto_kill_price: float = 110
 
 func _process(delta):
 	all_kill_handler()

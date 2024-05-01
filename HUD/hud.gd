@@ -27,8 +27,8 @@ func _process(delta):
 	%auto_click.button_pressed = gm.auto_click
 	%auto_kill.button_pressed = gm.auto_kill_acolytes
 	
-	%auto_spawn_txt.text = ""
-	%auto_kill_txt.text = ""
+	%auto_spawn_txt.text = "Spawn spd: " + str(GameManager.click_timer_base) + "s"
+	%auto_kill_txt.text = "Kill spd: " + str(GameManager.auto_kill_base_timer) + "s"
 
 func _on_screen_shake_pressed():
 	gm.screen_shake = !gm.screen_shake
