@@ -33,6 +33,11 @@ func _process(delta):
 	##Mouse clicking upgrade
 	if Input.is_action_just_pressed("mouse_click") && mouse_click_upgrade_enabled:
 		GameManager.usable_money += 1 * GameManager.only_click_money_multiplicator
+	
+	##enabling of the upgrades that are depending on static upgrades
+	#faster spawn
+	if GameManager.auto_click:
+		%faster_spawn_btn.disabled = false
 
 
 func show_hide_panel():
@@ -108,4 +113,9 @@ func _on_max_amount_acol_btn_pressed():
 
 func max_amount_of_acols_tooltip():
 	%max_amount_acol_btn.tooltip_text = "Maximum number of spawned minions on screen \ncost: " + str(UpgradesManager.raise_max_amount_of_spawned) + "\nThe current amount is visible in the bottom bar"
-	
+
+func _on_faster_spawn_btn_pressed():
+	if GameManager.usable_money >= UpgradesManager.faster_auto_spawn_price:
+		GameManager.usable_money -= UpgradesManager.faster_auto_spawn_price
+		UpgradesManager.faster_auto_spawn_price *= 1.8
+		GameManager.click_timer_base -= .2
