@@ -84,8 +84,17 @@ text = "Max"
 [node name="faster_spawn_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Upgrade how fast acolytes are spawn
+cost : 170
+Acolytes spawned every 2 s"
 disabled = true
 text = "Faster spawn"
+
+[node name="faster_kills_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Faster Kills"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer"]
 visible = false
@@ -110,3 +119,4 @@ text = "screenshake info"
 [connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/clicks_btn" to="." method="_on_clicks_btn_pressed"]
 [connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/max_amount_acol_btn" to="." method="_on_max_amount_acol_btn_pressed"]
 [connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/faster_spawn_btn" to="." method="_on_faster_spawn_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/faster_kills_btn" to="." method="_on_faster_kills_btn_pressed"]

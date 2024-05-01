@@ -20,7 +20,7 @@ extends Node
 @export var max_spawned_acolytes: int = 100 # the base is that we can spawn max amount of acolytes
 
 ####   MONEY
-@export var usable_money: float = 1000 #money that player currently have
+@export var usable_money: float = 100000 #money that player currently have
 ####   MONEY UPGRADES   ####
 @export var kill_money_multiplicator: float = .1 #money gained per kill
 @export var click_money_multiplicator: float = .1 #money gained per click on spawn

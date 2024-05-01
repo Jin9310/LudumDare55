@@ -16,6 +16,9 @@ func _ready():
 	more_spawn_tooltip()
 	only_clicks_tooltip()
 	max_amount_of_acols_tooltip()
+	faster_spawn_tooltip()
+	faster_kills_tooltip()
+	
 
 func _process(delta):
 	show_hide_panel()
@@ -38,6 +41,9 @@ func _process(delta):
 	#faster spawn
 	if GameManager.auto_click:
 		%faster_spawn_btn.disabled = false
+	#faster kills
+	if GameManager.auto_kill_acolytes:
+		%faster_kills_btn.disabled = false
 
 
 func show_hide_panel():
@@ -119,3 +125,18 @@ func _on_faster_spawn_btn_pressed():
 		GameManager.usable_money -= UpgradesManager.faster_auto_spawn_price
 		UpgradesManager.faster_auto_spawn_price *= 1.8
 		GameManager.click_timer_base -= .2
+		faster_spawn_tooltip()
+
+func faster_spawn_tooltip():
+	%faster_spawn_btn.tooltip_text = "Upgrade how fast acolytes are spawn \ncost: " + str(UpgradesManager.faster_auto_spawn_price) + "\nAcolytes spawned every " + str(GameManager.click_timer_base) + "s"
+
+func _on_faster_kills_btn_pressed():
+	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price:
+		GameManager.usable_money -= UpgradesManager.faster_auto_kill_price
+		UpgradesManager.faster_auto_kill_price *= 1.9
+		GameManager.auto_kill_base_timer -= .6
+		faster_kills_tooltip()
+
+func faster_kills_tooltip():
+	%faster_kills_btn.tooltip_text = "Upgrade how fast acolytes are auto-killed \ncost: " + str(UpgradesManager.faster_auto_kill_price) + "\nAcolytes killed every " + str(GameManager.auto_kill_base_timer) + "s"
+
