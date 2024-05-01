@@ -8,10 +8,13 @@ signal kill_all_pressed
 
 @export var static_upgrades_panel: bool = false #checking if I clicked the btn that opens the options
 
+var mouse_click_upgrade_enabled: bool = false
+
 func _ready():
 	#tooltips
 	better_kills_tooltip()
 	more_spawn_tooltip()
+	only_clicks_tooltip()
 
 func _process(delta):
 	show_hide_panel()
@@ -25,6 +28,10 @@ func _process(delta):
 		static_upgrades_panel = false
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(%SpawnMargin, "position", Vector2(580,40), 0.5)
+	
+	##Mouse clicking upgrade
+	if Input.is_action_just_pressed("mouse_click") && mouse_click_upgrade_enabled:
+		GameManager.usable_money += 1 * GameManager.only_click_money_multiplicator
 
 
 func show_hide_panel():
@@ -79,3 +86,13 @@ func _on_clicks_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.click_money_upgrade:
 		GameManager.usable_money -= UpgradesManager.click_money_upgrade
 		UpgradesManager.click_money_upgrade *= 1.6
+		if mouse_click_upgrade_enabled == true:
+			GameManager.only_click_money_multiplicator += .1
+		mouse_click_upgrade_enabled = true
+		only_clicks_tooltip()
+
+func only_clicks_tooltip():
+	if mouse_click_upgrade_enabled == false:
+		%clicks_btn.tooltip_text = "Coins per every mouse click \ncost: " + str(UpgradesManager.click_money_upgrade) + "\ncurrently gains 0 per mouse click"
+	else:
+		%clicks_btn.tooltip_text = "Coins per every mouse click \ncost: " + str(UpgradesManager.click_money_upgrade) + "\ncurrently gains " + str(GameManager.only_click_money_multiplicator) + " per mouse click"

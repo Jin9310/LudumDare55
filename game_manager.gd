@@ -22,4 +22,6 @@ extends Node
 @export var usable_money: float #money that player currently have
 ####   MONEY UPGRADES   ####
 @export var kill_money_multiplicator: float = .1 #money gained per kill
-@export var click_money_multiplicator: float = .1 #money gained per click
+@export var click_money_multiplicator: float = .1 #money gained per click on spawn
+@export var only_click_money_multiplicator: float = .1 #money gained per click anywhere
+
