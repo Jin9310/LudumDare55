@@ -73,10 +73,8 @@ func _on_auto_kill_btn_pressed():
 		GameManager.usable_money -= UpgradesManager.auto_kill_price
 		emit_signal("play_scull")
 
-
 func _on_screenshake_btn_pressed():
 	GameManager.screen_shake = !GameManager.screen_shake
-
 
 func _on_a_click_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.auto_click_price:
