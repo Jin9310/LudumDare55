@@ -26,6 +26,9 @@ func _process(delta):
 	%screen_shake.button_pressed = gm.screen_shake
 	%auto_click.button_pressed = gm.auto_click
 	%auto_kill.button_pressed = gm.auto_kill_acolytes
+	
+	%auto_spawn_txt.text = ""
+	%auto_kill_txt.text = ""
 
 func _on_screen_shake_pressed():
 	gm.screen_shake = !gm.screen_shake

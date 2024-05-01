@@ -106,6 +106,18 @@ step = 0.1
 value = 0.1
 tick_count = 10
 
+[node name="auto_spawn_txt" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "asdfsa"
+fit_content = true
+
+[node name="auto_kill_txt" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "asdfas"
+fit_content = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/screen_shake" to="." method="_on_screen_shake_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/auto_click" to="." method="_on_auto_click_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/auto_kill" to="." method="_on_auto_kill_pressed"]
