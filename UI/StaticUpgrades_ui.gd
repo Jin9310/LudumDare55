@@ -19,9 +19,13 @@ func _process(delta):
 	
 	if GameManager.auto_click == true:
 		%auto_click_btn.tooltip_text = "Already purchased"
+	else:
+		%auto_click_btn.tooltip_text = "Automatic summoning over time \ncost: " + str(UpgradesManager.auto_click_price)
 	
 	if GameManager.auto_kill_acolytes == true:
-		%auto_click_btn.tooltip_text = "Already purchased"
+		%auto_kill_btn.tooltip_text = "Already purchased"
+	else:
+		%auto_kill_btn.tooltip_text = "Kills minions automaticaly over time \ncost: " + str(UpgradesManager.auto_kill_price)
 	
 	if Input.is_action_just_pressed("rmb") && static_upgrades_panel == true:
 		static_upgrades_panel = false
