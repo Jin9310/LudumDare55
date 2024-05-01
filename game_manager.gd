@@ -17,6 +17,7 @@ extends Node
 ####   SPAWNING
 @export var acolytes_spawn_at_one_time: int = 1 #spawns per click (shared for manual and automatic) 
 #spawn numbers are covered in auto click section
+@export var max_spawned_acolytes: int = 100 # the base is that we can spawn max amount of 100 acolytes
 
 ####   MONEY
 @export var usable_money: float #money that player currently have

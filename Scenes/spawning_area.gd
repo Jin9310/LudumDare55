@@ -21,7 +21,7 @@ func _ready():
 
 func _physics_process(delta):
 	#auto clicking
-	if GameManager.auto_click && GameManager.current_minion_count < 100:
+	if GameManager.auto_click && GameManager.current_minion_count < GameManager.max_spawned_acolytes:
 		click_timer -= delta
 		if click_timer <= 0:
 			if GameManager.screen_shake: #do a screenshake even after automatick click
@@ -60,7 +60,8 @@ func _on_input_event(viewport, event, shape_idx):
 		#play click sound
 		number_of_all_clicks += 1 # count all the clicks done
 		number_of_clicks -= 1
-		if number_of_clicks <= 0 && GameManager.current_minion_count < 100: #spawn a minion and make sure thehe is no more than 100 active acolytes at the moment
+		if number_of_clicks <= 0 && GameManager.current_minion_count < GameManager.max_spawned_acolytes: 
+		#spawn a minion and make sure thehe is no more than 100 active acolytes at the moment
 			emit_signal("spawn_basic_minion")
 			number_of_clicks = clicks_to_spawn
 

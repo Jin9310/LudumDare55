@@ -73,6 +73,14 @@ cost : 123
 Currently gain 123 coins per click"
 text = "Clicks"
 
+[node name="max_amount_acol_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Maximum number of spawned minions on screen
+cost : 150
+The current amount is visible in the bottom bar"
+text = "Max"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
@@ -94,3 +102,4 @@ text = "screenshake info"
 [connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/better_kills_btn" to="." method="_on_better_kills_btn_pressed"]
 [connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/more_spawns_btn" to="." method="_on_more_spawns_btn_pressed"]
 [connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/clicks_btn" to="." method="_on_clicks_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/max_amount_acol_btn" to="." method="_on_max_amount_acol_btn_pressed"]

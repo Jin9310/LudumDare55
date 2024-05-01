@@ -15,6 +15,7 @@ func _ready():
 	better_kills_tooltip()
 	more_spawn_tooltip()
 	only_clicks_tooltip()
+	max_amount_of_acols_tooltip()
 
 func _process(delta):
 	show_hide_panel()
@@ -96,3 +97,15 @@ func only_clicks_tooltip():
 		%clicks_btn.tooltip_text = "Coins per every mouse click \ncost: " + str(UpgradesManager.click_money_upgrade) + "\ncurrently gains 0 per mouse click"
 	else:
 		%clicks_btn.tooltip_text = "Coins per every mouse click \ncost: " + str(UpgradesManager.click_money_upgrade) + "\ncurrently gains " + str(GameManager.only_click_money_multiplicator) + " per mouse click"
+
+
+func _on_max_amount_acol_btn_pressed():
+	if GameManager.usable_money >= UpgradesManager.raise_max_amount_of_spawned:
+		GameManager.usable_money -= UpgradesManager.raise_max_amount_of_spawned
+		GameManager.max_spawned_acolytes += 50
+		UpgradesManager.raise_max_amount_of_spawned *= 1.7
+		max_amount_of_acols_tooltip()
+
+func max_amount_of_acols_tooltip():
+	%max_amount_acol_btn.tooltip_text = "Maximum number of spawned minions on screen \ncost: " + str(UpgradesManager.raise_max_amount_of_spawned) + "\nThe current amount is visible in the bottom bar"
+	
