@@ -61,7 +61,6 @@ func show_hide_panel():
 	else:
 		tween.tween_property(%SpawnMargin, "position", Vector2(543,40), 0.5)
 
-
 func _on_static_upgrades_btn_pressed():
 	static_upgrades_panel = !static_upgrades_panel
 
@@ -72,8 +71,6 @@ func hide_others(): #check if other panels are selected or not, if yes, hide thi
 	elif StaticUpgradesUi.static_upgrades_panel == false:
 		tween.tween_property(%SpawnMargin, "position", Vector2(543,40), 0.5)
 
-
-
 func _on_better_kills_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.kill_money_upgrade:
 		GameManager.kill_money_multiplicator += .1
@@ -83,7 +80,6 @@ func _on_better_kills_btn_pressed():
 
 func better_kills_tooltip():
 	%better_kills_btn.tooltip_text = "Upgrade money gained per kill \ncost: " + "%.2f" % UpgradesManager.kill_money_upgrade + "\ncurrent money gain per kill: " + str(GameManager.kill_money_multiplicator)
-
 
 func _on_more_spawns_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.spawn_more_minions_upgrade:

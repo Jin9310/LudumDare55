@@ -78,8 +78,13 @@ func animation_finished():
 	#animation is done 
 	#this function is called at the end of the animation and is set in AnimationPlayer
 	if dead != true:
-		$AnimationPlayer.play("idle")
-		idle = true
+		var random_number = randi_range(0,1)
+		if random_number == 0:
+			$AnimationPlayer.play("idle")
+			idle = true
+		else:
+			$AnimationPlayer.play("walk")
+			move = true
 	else:# here should be everything that happens after minion is dead
 		#delete acolyte if death animation is done
 		GameManager.kills += 1

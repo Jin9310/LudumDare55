@@ -8,3 +8,4 @@ res://UI/lower_bar.tscn
 res://UI/spawn_upgrades_ui.gd
 res://Singletons/upgrades_manager.gd
 res://game_manager.gd
+res://NewGame/acolyte.gd
