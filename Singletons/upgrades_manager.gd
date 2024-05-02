@@ -13,6 +13,12 @@ var raise_max_amount_of_spawned: float = 150
 var faster_auto_spawn_price: float = 210
 var faster_auto_kill_price: float = 110
 
+var fast_spawn_low: bool = false
+var fast_kill_low: bool = false
+
+var low_multiplicator: float = .02
+
+
 func _process(delta):
 	all_kill_handler()
 
