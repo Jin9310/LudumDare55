@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal clicked_minion
+
 @onready var new_game: Node = get_node("/root/NewGame")
 
 #acolyte states
@@ -15,7 +17,7 @@ var random_time: float
 var direction: Vector2
 
 #timer for auto kill enabled > can be purchased
-var auto_kill_timer: float
+#var auto_kill_timer: float
 
 func _ready():
 	new_game.connect("auto_kill_enabled", auto_kill_enabled)
@@ -25,7 +27,7 @@ func _ready():
 	set_random_time(3.0, 6.0) #set some basic timer
 	direction = Vector2.RIGHT.rotated(randf_range(0, TAU)) #set some basic direction
 	$AnimationPlayer.play("spawn")
-	auto_kill_timer = GameManager.auto_kill_base_timer
+	#auto_kill_timer = GameManager.auto_kill_base_timer
 
 func _physics_process(delta):
 	
@@ -53,10 +55,10 @@ func _physics_process(delta):
 		die_now()
 	
 	#autokill update purchased
-	if GameManager.auto_kill_acolytes:
-		auto_kill_timer -= delta
-		if auto_kill_timer <= 0:
-			die_now()
+	#if GameManager.auto_kill_acolytes:
+	#	auto_kill_timer -= delta
+	#	if auto_kill_timer <= 0:
+	#		die_now()
 
 func change_animation(): #change animations based on NPCs state
 	if idle:
@@ -97,7 +99,8 @@ func animation_finished():
 
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"):
-		dead = true
+		new_game.clicked_minion(self)
+		auto_kill_enabled()
 
 func auto_kill_enabled():
 	dead = true

@@ -1,7 +1,7 @@
 8b9a7e1e51ce0e0f689e048f6f73a6e1
-::res://::1714589976
-export_presets.cfg::TextFile::-1::1714589565::0::1::::<><>::
-game_manager.gd::GDScript::-1::1714587334::0::1::::<>Node<>::
+::res://::1714627376
+export_presets.cfg::TextFile::-1::1714590034::0::1::::<><>::
+game_manager.gd::GDScript::-1::1714589989::0::1::::<>Node<>::
 LudumDare55.png::CompressedTexture2D::2033682311648578414::1712856359::1712856382::1::::<><>::
 Minecraft.ttf::FontFile::8640906667079268946::1713115491::1713115505::1::::<><>::
 ::res://addons/::1714460469
@@ -78,11 +78,11 @@ hud.gd::GDScript::-1::1714589317::0::1::::<>CanvasLayer<>::
 hud.tscn::PackedScene::4872090863134794575::1714589384::0::1::::<><>::res://HUD/hud.gd
 ::res://MainMenu/::1713764354
 main_menu.tscn::PackedScene::7023415332210558022::1713764354::0::1::::<><>::
-::res://NewGame/::1714589477
+::res://NewGame/::1714589989
 acolyte.gd::GDScript::-1::1714392913::0::1::::<>CharacterBody2D<>::
 acolyte.tscn::PackedScene::2744685651352918227::1714589384::0::1::::<><>::uid://cctxk1eqlpfh2::::res://PrefabedScenes/characters.tscn<>uid://cxqr1lyy0w2eo::::res://Art/SourceFiles/idle_acolyte-Sheet.png<>res://NewGame/acolyte.gd
 new_game.gd::GDScript::-1::1714405424::0::1::::<>Node2D<>::
-new_game.tscn::PackedScene::1234208287472858443::1714589477::0::1::::<><>::uid://egtp36jotad5::::res://Scenes/spawning_area.tscn<>res://NewGame/new_game.gd<>uid://dsyf0vmwv6808::::res://Art/SourceFiles/tileset.png<>uid://j6nhmi2xqqmi::::res://Art/SourceFiles/floor_tileset.png<>uid://dfy75a1gpodr4::::res://Art/skull_into_smoke-Sheet.png<>res://NewGame/Scull.gd
+new_game.tscn::PackedScene::1234208287472858443::1714589989::0::1::::<><>::uid://egtp36jotad5::::res://Scenes/spawning_area.tscn<>res://NewGame/new_game.gd<>uid://dsyf0vmwv6808::::res://Art/SourceFiles/tileset.png<>uid://j6nhmi2xqqmi::::res://Art/SourceFiles/floor_tileset.png<>uid://dfy75a1gpodr4::::res://Art/skull_into_smoke-Sheet.png<>res://NewGame/Scull.gd
 Scull.gd::GDScript::-1::1714495653::0::1::::<>Area2D<>::
 ::res://PrefabedScenes/::1712988575
 characters.tscn::PackedScene::4953857953290663749::1712988575::0::1::::<><>::
