@@ -58,12 +58,12 @@ func kill_one_acolyte_only():
 	if minions.size() > 0:
 		var index = randi() % minions.size()
 		var minion_to_kill = minions[index]
-		minions.remove_at(index)
+		minions.remove_at(index) #remove random minion from the list
 		minion_to_kill.die_now()
 
-func clicked_minion(acolyte):
+func clicked_minion(acolyte): #remove clicked minion from the list
 	minions.erase(acolyte)
 
-func all_kill_clear_list():
+func all_kill_clear_list(): # need to remove enerything from the list if everyone is killed
 	minions.clear()
 

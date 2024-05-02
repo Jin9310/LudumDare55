@@ -16,9 +16,6 @@ var random_time: float
 #set different direction where acolyte will move next
 var direction: Vector2
 
-#timer for auto kill enabled > can be purchased
-#var auto_kill_timer: float
-
 func _ready():
 	new_game.connect("auto_kill_enabled", auto_kill_enabled)
 	SpawnUpgradesUi.connect("kill_all_pressed", auto_kill_enabled)
@@ -27,7 +24,6 @@ func _ready():
 	set_random_time(3.0, 6.0) #set some basic timer
 	direction = Vector2.RIGHT.rotated(randf_range(0, TAU)) #set some basic direction
 	$AnimationPlayer.play("spawn")
-	#auto_kill_timer = GameManager.auto_kill_base_timer
 
 func _physics_process(delta):
 	
@@ -53,12 +49,6 @@ func _physics_process(delta):
 	#handling the death
 	if dead:
 		die_now()
-	
-	#autokill update purchased
-	#if GameManager.auto_kill_acolytes:
-	#	auto_kill_timer -= delta
-	#	if auto_kill_timer <= 0:
-	#		die_now()
 
 func change_animation(): #change animations based on NPCs state
 	if idle:
