@@ -82,7 +82,7 @@ func _on_better_kills_btn_pressed():
 		better_kills_tooltip()
 
 func better_kills_tooltip():
-	%better_kills_btn.tooltip_text = "Upgrade money gained per kill \ncost: " + str(UpgradesManager.kill_money_upgrade) + "\ncurrent money gain per kill: " + str(GameManager.kill_money_multiplicator)
+	%better_kills_btn.tooltip_text = "Upgrade money gained per kill \ncost: " + "%.2f" % UpgradesManager.kill_money_upgrade + "\ncurrent money gain per kill: " + str(GameManager.kill_money_multiplicator)
 
 
 func _on_more_spawns_btn_pressed():
@@ -93,7 +93,7 @@ func _on_more_spawns_btn_pressed():
 		more_spawn_tooltip()
 
 func more_spawn_tooltip():
-	%more_spawns_btn.tooltip_text = "Upgrade the amount of minions spawned per click \ncost: " + str(UpgradesManager.spawn_more_minions_upgrade) + "\ncurrently spawns " + str(GameManager.acolytes_spawn_at_one_time) + " per click"
+	%more_spawns_btn.tooltip_text = "Upgrade the amount of minions spawned per click \ncost: " + "%.2f" % UpgradesManager.spawn_more_minions_upgrade + "\ncurrently spawns " + str(GameManager.acolytes_spawn_at_one_time) + " per click"
 
 
 func _on_kill_all_btn_pressed():
