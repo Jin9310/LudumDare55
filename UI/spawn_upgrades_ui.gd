@@ -133,7 +133,7 @@ func faster_spawn_tooltip():
 func _on_faster_kills_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price:
 		GameManager.usable_money -= UpgradesManager.faster_auto_kill_price
-		UpgradesManager.faster_auto_kill_price *= 1.9
+		UpgradesManager.faster_auto_kill_price *= 1.7
 		GameManager.auto_kill_base_timer -= .6
 		faster_kills_tooltip()
 

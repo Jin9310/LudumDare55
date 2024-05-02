@@ -84,10 +84,10 @@ func animation_finished():
 		#delete acolyte if death animation is done
 		GameManager.kills += 1
 		GameManager.current_minion_count -= 1
-		GameManager.usable_money += 1 * GameManager.kill_money_multiplicator
+		GameManager.usable_money += (1 * GameManager.kill_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
 		queue_free()
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(viewport, event, shape_idx): #mouse click on a minion
 	if Input.is_action_just_pressed("mouse_click"):
 		new_game.clicked_minion(self)
 		auto_kill_enabled()
