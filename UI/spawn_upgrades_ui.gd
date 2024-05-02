@@ -134,7 +134,7 @@ func _on_faster_spawn_btn_pressed():
 		UpgradesManager.faster_auto_spawn_price *= 1.8
 		GameManager.click_timer_base -= .2
 		faster_spawn_tooltip()
-	if GameManager.usable_money >= UpgradesManager.faster_auto_spawn_price && UpgradesManager.fast_spawn_low:
+	if GameManager.usable_money >= UpgradesManager.faster_auto_spawn_price && UpgradesManager.fast_spawn_low && GameManager.click_timer_base > 0.01:
 		GameManager.usable_money -= UpgradesManager.faster_auto_spawn_price
 		UpgradesManager.faster_auto_spawn_price *= 1.8
 		GameManager.click_timer_base -= UpgradesManager.low_multiplicator
@@ -142,7 +142,12 @@ func _on_faster_spawn_btn_pressed():
 
 
 func faster_spawn_tooltip():
-	%faster_spawn_btn.tooltip_text = "Upgrade how fast acolytes are spawn \ncost: " + "%.2f" % UpgradesManager.faster_auto_spawn_price + "\nAcolytes spawned every " + str(GameManager.click_timer_base) + "s"
+	if GameManager.click_timer_base < 0.01:
+		%faster_spawn_btn.tooltip_text = "Upgrade how fast acolytes are spawn \nMaximum reached" + "\nAcolytes spawned every 0s"
+		%faster_spawn_btn.disabled = true
+	else:
+		%faster_spawn_btn.tooltip_text = "Upgrade how fast acolytes are spawn \ncost: " + "%.2f" % UpgradesManager.faster_auto_spawn_price + "\nAcolytes spawned every " + str(GameManager.click_timer_base) + "s"
+	
 
 func _on_faster_kills_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price && UpgradesManager.fast_kill_low != true:
@@ -150,12 +155,16 @@ func _on_faster_kills_btn_pressed():
 		UpgradesManager.faster_auto_kill_price *= 1.7
 		GameManager.auto_kill_base_timer -= .6
 		faster_kills_tooltip()
-	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price && UpgradesManager.fast_kill_low:
+	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price && UpgradesManager.fast_kill_low && GameManager.auto_kill_base_timer > 0.01:
 		GameManager.usable_money -= UpgradesManager.faster_auto_kill_price
 		UpgradesManager.faster_auto_kill_price *= 1.7
 		GameManager.auto_kill_base_timer -= UpgradesManager.low_multiplicator
 		faster_kills_tooltip()
 
 func faster_kills_tooltip():
-	%faster_kills_btn.tooltip_text = "Upgrade how fast acolytes are auto-killed \ncost: " + "%.2f" % UpgradesManager.faster_auto_kill_price + "\nAcolytes killed every " + str(GameManager.auto_kill_base_timer) + "s"
-
+	if GameManager.auto_kill_base_timer < 0.01:
+		%faster_kills_btn.tooltip_text = "Upgrade how fast acolytes are auto-killed \nMaximum reached" + "\nAcolytes killed every 0s"
+		%faster_kills_btn.disabled = true
+	else:
+		%faster_kills_btn.tooltip_text = "Upgrade how fast acolytes are auto-killed \ncost: " + "%.2f" % UpgradesManager.faster_auto_kill_price + "\nAcolytes killed every " + str(GameManager.auto_kill_base_timer) + "s"
+	
