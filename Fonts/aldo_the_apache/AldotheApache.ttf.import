@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://br01odh1twpni"
-path="res://.godot/imported/AldotheApache.ttf-cffa48075c0951025613714b623191ef.fontdata"
+path="res://.godot/imported/AldotheApache.ttf-1a3c44463a702295b3b76576577c753a.fontdata"
 
 [deps]
 
-source_file="res://shared/fonts/aldo_the_apache/AldotheApache.ttf"
-dest_files=["res://.godot/imported/AldotheApache.ttf-cffa48075c0951025613714b623191ef.fontdata"]
+source_file="res://Fonts/aldo_the_apache/AldotheApache.ttf"
+dest_files=["res://.godot/imported/AldotheApache.ttf-1a3c44463a702295b3b76576577c753a.fontdata"]
 
 [params]
 
