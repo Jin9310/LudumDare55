@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbnw8qa8ugp6g"]
+[gd_scene load_steps=8 format=3 uid="uid://bbnw8qa8ugp6g"]
 
 [ext_resource type="Texture2D" uid="uid://vfpt1m1typvx" path="res://Art/coin/coin.png" id="1_hfrvc"]
 [ext_resource type="Script" path="res://UI/lower_bar.gd" id="1_qhl0l"]
+[ext_resource type="FontFile" uid="uid://br01odh1twpni" path="res://Fonts/aldo_the_apache/AldotheApache.ttf" id="3_o350x"]
 [ext_resource type="Texture2D" uid="uid://b4c7wi6vxcbvc" path="res://Art/icons/minion_icon.png" id="3_v36sj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c775j"]
@@ -53,12 +54,16 @@ stretch_mode = 2
 
 [node name="Usable_mone_lbl" type="Label" parent="LowerMargin/HBoxContainer/CoinIcon"]
 unique_name_in_owner = true
-layout_mode = 2
-offset_left = 36.0
-offset_top = 4.0
-offset_right = 91.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.09375
+anchor_top = 0.1875
+anchor_right = 2.90625
+anchor_bottom = 0.8125
+theme_override_fonts/font = ExtResource("3_o350x")
+theme_override_font_sizes/font_size = 22
 text = "123456"
+metadata/_edit_use_anchors_ = true
 
 [node name="MinionIcon" type="TextureRect" parent="LowerMargin/HBoxContainer"]
 layout_mode = 2
