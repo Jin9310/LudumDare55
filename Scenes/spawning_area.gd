@@ -20,6 +20,8 @@ func _ready():
 	click_timer = GameManager.click_timer_base
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("camera"):
+		%Camera2D.enabled = !%Camera2D.enabled
 	#auto clicking
 	if GameManager.auto_click && GameManager.current_minion_count < GameManager.max_spawned_acolytes:
 		click_timer -= delta

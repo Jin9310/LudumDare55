@@ -8,3 +8,4 @@ res://UI/StaticUpgrades_ui.tscn
 res://UI/spawn_upgrades_ui.tscn
 res://NewGame/Scull.gd
 res://UI/lower_bar.gd
+res://Scenes/spawning_area.gd
