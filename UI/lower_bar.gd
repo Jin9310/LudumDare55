@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal kill_all_pressed
 signal all_kill_clear_list
+signal play_scull
 
 var mouse_count: int = 0
 var kill_all_active: bool = false
@@ -27,6 +28,7 @@ func _process(delta):
 func _on_button_pressed():
 	emit_signal("kill_all_pressed")
 	emit_signal("all_kill_clear_list")
+	emit_signal("play_scull") #play scull animation
 	mouse_count = 0
 	%ProgressBar.value = 0
 	kill_all_active = false
