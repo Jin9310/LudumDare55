@@ -1,5 +1,5 @@
-RichTextLabel
 Button
+RichTextLabel
 AnimationPlayer
 CollisionShape2D
 Sprite2D

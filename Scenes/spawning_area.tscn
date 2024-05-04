@@ -307,7 +307,6 @@ autoplay = "idle"
 unique_name_in_owner = true
 rotation = 0.136136
 ignore_rotation = false
-enabled = false
 zoom = Vector2(2.2, 2.2)
 
 [node name="CameraAnim" type="AnimationPlayer" parent="Camera2D" index="0"]

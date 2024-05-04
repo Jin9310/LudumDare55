@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt5ry8qs3tcbc"]
+[gd_scene load_steps=8 format=3 uid="uid://bt5ry8qs3tcbc"]
 
 [ext_resource type="Script" path="res://UI/StaticUpgrades_ui.gd" id="1_3mr27"]
+[ext_resource type="FontFile" uid="uid://br01odh1twpni" path="res://Fonts/aldo_the_apache/AldotheApache.ttf" id="2_265if"]
 [ext_resource type="Texture2D" uid="uid://bhko02bcilp0e" path="res://Art/SourceFiles/button_template_normal.png" id="2_a3ebx"]
 [ext_resource type="Texture2D" uid="uid://d2eqgg1ci7ubv" path="res://Art/SourceFiles/button_template_pressed.png" id="3_k5usl"]
 [ext_resource type="Texture2D" uid="uid://bdveju1gpg811" path="res://Art/SourceFiles/button_template_hover.png" id="4_ntmn0"]
@@ -33,6 +34,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_265if")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vy3yj")
 text = "<"
 
@@ -56,6 +58,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 tooltip_text = "Automatic summoning over time
 cost: 50"
+theme_override_fonts/font = ExtResource("2_265if")
 text = "Auto click"
 
 [node name="auto_kill_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
@@ -65,6 +68,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 tooltip_text = "Kills minions over time
 cost: 50"
+theme_override_fonts/font = ExtResource("2_265if")
 text = "Auto kill"
 
 [node name="screenshake_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
@@ -72,6 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 tooltip_text = "Turn ON/OFF screenshake"
+theme_override_fonts/font = ExtResource("2_265if")
 text = "Screenshake"
 
 [node name="a_click_btn" type="TextureButton" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
@@ -83,6 +88,12 @@ texture_normal = ExtResource("2_a3ebx")
 texture_pressed = ExtResource("3_k5usl")
 texture_hover = ExtResource("4_ntmn0")
 texture_disabled = ExtResource("5_x1vm8")
+
+[node name="auto_fill_btn" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Automatically fills the KILL ALL progress bar"
+theme_override_fonts/font = ExtResource("2_265if")
+text = "Auto Fill"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 visible = false
