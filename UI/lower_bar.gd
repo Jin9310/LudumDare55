@@ -12,9 +12,12 @@ var kill_all_active: bool = false
 #autofill
 var auto_fill_on: bool = false
 var auto_fill_timer: float
-var auto_fill_timer_base: float = 3.0 
+var auto_fill_timer_base: float = 3.0 # add 1% every 3s
+
+var max_value_progress_bar: float = 250
 
 func _ready():
+	%ProgressBar.max_value = max_value_progress_bar
 	auto_fill_timer = auto_fill_timer_base
 	static_upgrades.connect("auto_fill_enabled", auto_fill_enabled)
 
@@ -25,8 +28,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("mouse_click"):
 		mouse_count += 1
 		%ProgressBar.value += 1
-		if mouse_count >= 250:
+		if mouse_count >= max_value_progress_bar:
 			kill_all_active = true
+	
+	if %ProgressBar.value >= max_value_progress_bar:
+		kill_all_active = true
 	
 	if kill_all_active == false:
 		%Kill_all_btn.visible = false

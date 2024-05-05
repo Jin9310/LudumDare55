@@ -1,12 +1,9 @@
-res://Scenes/spawning_area.tscn
+res://UI/lower_bar.tscn
 res://UI/StaticUpgrades_btn.gdshader
+res://UI/lower_bar.gd
 res://NewGame/new_game.tscn
+res://Scenes/spawning_area.tscn
 res://NewGame/acolyte.tscn
 res://HUD/hud.tscn
 res://UI/StaticUpgrades_ui.tscn
 res://UI/spawn_upgrades_ui.tscn
-res://UI/lower_bar.tscn
-res://UI/StaticUpgrades_ui.gd
-res://Singletons/upgrades_manager.gd
-res://UI/lower_bar.gd
-res://game_manager.gd
