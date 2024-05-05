@@ -4,8 +4,19 @@ signal kill_all_pressed
 signal all_kill_clear_list
 signal play_scull
 
+@onready var static_upgrades: Node = get_node("/root/StaticUpgradesUi")
+
 var mouse_count: int = 0
 var kill_all_active: bool = false
+
+#autofill
+var auto_fill_on: bool = false
+var auto_fill_timer: float
+var auto_fill_timer_base: float = 3.0 
+
+func _ready():
+	auto_fill_timer = auto_fill_timer_base
+	static_upgrades.connect("auto_fill_enabled", auto_fill_enabled)
 
 func _process(delta):
 	%Usable_mone_lbl.text = "%.2f" % GameManager.usable_money
@@ -23,7 +34,12 @@ func _process(delta):
 	else:
 		%Kill_all_btn.visible = true
 		%ProgressBar.visible = false
-
+	
+	if auto_fill_on:
+		auto_fill_timer -= delta
+		if auto_fill_timer <= 0:
+			%ProgressBar.value += 2.5
+			auto_fill_timer = auto_fill_timer_base 
 
 func _on_button_pressed():
 	emit_signal("kill_all_pressed")
@@ -32,3 +48,6 @@ func _on_button_pressed():
 	mouse_count = 0
 	%ProgressBar.value = 0
 	kill_all_active = false
+
+func auto_fill_enabled():
+	auto_fill_on = true

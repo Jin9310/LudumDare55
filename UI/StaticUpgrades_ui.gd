@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal play_scull
+signal auto_fill_enabled
 
 # 431 open position
 # 543 closed position
@@ -80,3 +81,10 @@ func _on_a_click_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.auto_click_price:
 		GameManager.auto_click = true
 		GameManager.usable_money -= UpgradesManager.auto_click_price
+
+
+func _on_auto_fill_btn_pressed(): #automatic fill of the Kill All progress bar
+	if GameManager.usable_money >= UpgradesManager.auto_fill_price:
+		GameManager.usable_money -= UpgradesManager.auto_fill_price
+		%auto_fill_btn.disabled = true
+		emit_signal("auto_fill_enabled")

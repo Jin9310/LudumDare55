@@ -3,6 +3,7 @@ extends Node
 ## fixed prices ##
 var auto_click_price: float = 50 #one time price
 var auto_kill_price: float = 75 #one time price
+var auto_fill_price: float = 200
 var kill_all_button_price: float
 ### prices that scale ###
 var kill_money_upgrade: float = 10
