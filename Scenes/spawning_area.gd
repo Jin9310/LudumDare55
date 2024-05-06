@@ -3,6 +3,8 @@ extends Area2D
 signal spawn_basic_minion
 #signal show_me_coins
 
+@onready var lower_bar: Node = get_node("/root/LowerBar")
+
 @onready var animPlayer = $AnimationPlayer
 @export var number_of_all_clicks: int = 0
 
@@ -15,13 +17,14 @@ var click_timer: float
 var auto_anim_start_ended: bool = false
 
 func _ready():
+	lower_bar.connect("enable_camera", enable_camera)
 	%CameraAnim.play("idle")
 	number_of_clicks = clicks_to_spawn
 	click_timer = GameManager.click_timer_base
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("camera"):
-		%Camera2D.enabled = !%Camera2D.enabled
+		enable_camera()
 	#auto clicking
 	if GameManager.auto_click && GameManager.current_minion_count < GameManager.max_spawned_acolytes:
 		click_timer -= delta
@@ -85,6 +88,9 @@ func auto_click_anim():
 func animation_ended():
 	auto_anim_start_ended= true
 	auto_click_anim()
+
+func enable_camera():
+	%Camera2D.enabled = !%Camera2D.enabled
 
 func _on_body_entered(body):
 	pass

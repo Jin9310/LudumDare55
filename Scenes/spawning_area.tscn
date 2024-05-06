@@ -295,6 +295,7 @@ hframes = 31
 frame = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 shape = SubResource("CircleShape2D_mnjiw")
 
 [node name="AnimationPlayer" parent="." index="2"]
@@ -319,6 +320,7 @@ autoplay = "idle"
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_3ojpb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

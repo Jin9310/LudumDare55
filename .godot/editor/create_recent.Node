@@ -1,3 +1,6 @@
+CanvasLayer
+Label
+CheckButton
 Button
 RichTextLabel
 AnimationPlayer
@@ -10,5 +13,3 @@ PathFollow2D
 Path2D
 TextureButton
 ColorRect
-TextureRect
-CanvasLayer

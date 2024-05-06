@@ -3,6 +3,7 @@ extends CanvasLayer
 signal kill_all_pressed
 signal all_kill_clear_list
 signal play_scull
+signal enable_camera
 
 @onready var static_upgrades: Node = get_node("/root/StaticUpgradesUi")
 
@@ -46,6 +47,9 @@ func _process(delta):
 		if auto_fill_timer <= 0:
 			%ProgressBar.value += 2.5
 			auto_fill_timer = auto_fill_timer_base 
+	
+	if Input.is_action_just_pressed("camera"):
+		%CheckButton.button_pressed = !%CheckButton.button_pressed
 
 func _on_button_pressed():
 	emit_signal("kill_all_pressed")
@@ -57,3 +61,7 @@ func _on_button_pressed():
 
 func auto_fill_enabled():
 	auto_fill_on = true
+
+
+func _on_check_button_pressed():
+	emit_signal("enable_camera")
