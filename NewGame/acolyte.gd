@@ -16,6 +16,8 @@ var random_time: float
 #set different direction where acolyte will move next
 var direction: Vector2
 
+var random_death_animation: int
+
 func _ready():
 	new_game.connect("auto_kill_enabled", auto_kill_enabled)
 	SpawnUpgradesUi.connect("kill_all_pressed", auto_kill_enabled)
@@ -61,7 +63,15 @@ func die_now():
 	dead = true
 	move = false #stop the movement
 	velocity = Vector2(0,0) #stop any movement
-	$AnimationPlayer.play("death")
+	match random_death_animation:
+		0:
+			$AnimationPlayer.play("death")
+		1:
+			$AnimationPlayer.play("death_2")
+		2:
+			$AnimationPlayer.play("death_3")
+		3:
+			$AnimationPlayer.play("death_4")
 
 func set_random_time(min_range: float, max_range: float):
 	#set random time for each NPC so it feels more live
@@ -98,4 +108,5 @@ func _on_input_event(viewport, event, shape_idx): #mouse click on a minion
 		auto_kill_enabled()
 
 func auto_kill_enabled():
+	random_death_animation = randi_range(0,3)
 	dead = true
