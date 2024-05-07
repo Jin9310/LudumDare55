@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://egtp36jotad5"]
+[gd_scene load_steps=19 format=3 uid="uid://egtp36jotad5"]
 
 [ext_resource type="PackedScene" uid="uid://cnx0gji3v8ncm" path="res://PrefabedScenes/object_prefab.tscn" id="1_l0vk0"]
 [ext_resource type="Script" path="res://Scenes/spawning_area.gd" id="2_tkf8a"]
 [ext_resource type="Texture2D" uid="uid://ct54p3ksuy446" path="res://Art/SourceFiles/summoning_circle-Sheet.png" id="3_qxyau"]
+[ext_resource type="AudioStream" uid="uid://3kh6alcwjhvr" path="res://new_sfx/click_01.sfxr" id="4_lyqgh"]
+[ext_resource type="AudioStream" uid="uid://bcxdypesdcx1v" path="res://new_sfx/click_02.sfxr" id="5_3xag6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mnjiw"]
 radius = 24.0
@@ -322,6 +324,12 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 visible = false
 shape = SubResource("CircleShape2D_3ojpb")
+
+[node name="click01" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("4_lyqgh")
+
+[node name="click02" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("5_3xag6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]

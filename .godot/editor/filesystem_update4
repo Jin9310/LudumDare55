@@ -6,8 +6,4 @@ res://HUD/hud.tscn
 res://UI/StaticUpgrades_ui.tscn
 res://UI/spawn_upgrades_ui.tscn
 res://UI/lower_bar.tscn
-res://UI/lower_bar.gd
-res://Scenes/coin_animation.tscn
-res://Scenes/coin_animation.gd
-res://NewGame/acolyte.gd
 res://Scenes/spawning_area.gd

@@ -39,6 +39,7 @@ func _physics_process(delta):
 			elif GameManager.auto_click == true && auto_anim_start_ended == true:
 				auto_click_anim()
 			#earn money
+			#play_click_sound()
 			LowerBar.spawn_coin()
 			GameManager.usable_money += (1 * GameManager.click_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
 			#emit_signal("show_me_coins")
@@ -66,6 +67,7 @@ func click_anim():
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"): #manual clicking
 		#earn money even if nothing is spawned?
+		#play_click_sound()
 		LowerBar.spawn_coin()
 		GameManager.usable_money += (1 * GameManager.click_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
 		#emit_signal("show_me_coins")
@@ -115,3 +117,12 @@ func zoom_out():
 func _on_body_entered(body):
 	pass
 	#print("minion inside")
+
+func play_click_sound():
+	var rand = randi_range(0,1)
+	match rand:
+		0:
+			$click01.play()
+		1:
+			$click02.play()
+		
