@@ -7,3 +7,6 @@ res://UI/StaticUpgrades_ui.tscn
 res://UI/spawn_upgrades_ui.tscn
 res://UI/lower_bar.tscn
 res://NewGame/acolyte.gd
+res://game_manager.gd
+res://NewGame/new_game.gd
+res://UI/StaticUpgrades_ui.gd

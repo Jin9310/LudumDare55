@@ -59,7 +59,7 @@ func kill_one_acolyte_only():
 		var index = randi() % minions.size()
 		var minion_to_kill = minions[index]
 		minions.remove_at(index) #remove random minion from the list
-		minion_to_kill.die_now()
+		minion_to_kill.auto_kill_enabled()
 
 func clicked_minion(acolyte): #remove clicked minion from the list
 	minions.erase(acolyte)

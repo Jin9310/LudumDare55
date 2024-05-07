@@ -2,6 +2,7 @@ extends Node
 
 @export var screen_shake: bool = true #can be disabled in pause menu
 @export var current_minion_count: int #need to track how many minions are on the screen due to performance
+@export var auto_fill_purchased: bool = false
 
 ####### AUTO KILLING of the acolytes
 @export var auto_kill_acolytes: bool = false
@@ -20,7 +21,7 @@ extends Node
 @export var max_spawned_acolytes: int = 100 # the base is that we can spawn max amount of acolytes
 
 ####   MONEY
-@export var usable_money: float = 200 #money that player currently have
+@export var usable_money: float = 199 #money that player currently have
 ####   MONEY UPGRADES   ####
 @export var kill_money_multiplicator: float = .1 #money gained per kill
 @export var click_money_multiplicator: float = .1 #money gained per click on spawn
