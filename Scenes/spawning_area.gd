@@ -1,6 +1,8 @@
 extends Area2D
 
 signal spawn_basic_minion
+signal camera_zoom_out
+signal camera_zoom_in
 #signal show_me_coins
 
 @onready var lower_bar: Node = get_node("/root/LowerBar")
@@ -45,7 +47,17 @@ func _physics_process(delta):
 	if GameManager.auto_click == true:
 		if auto_anim_start_ended == false:
 			animPlayer.play("auto_click_start")
-		
+	
+	if Input.is_action_just_pressed("mouse_scroll_down"):
+		#zoom out
+		zoom_out()
+		emit_signal("camera_zoom_out")
+	
+	if Input.is_action_just_pressed("mouse_scroll_up"):
+		#zoom in
+		zoom_in()
+		emit_signal("camera_zoom_in")
+
 
 func click_anim():
 	animPlayer.play("click")
@@ -91,6 +103,12 @@ func animation_ended():
 
 func enable_camera():
 	%Camera2D.enabled = !%Camera2D.enabled
+
+func zoom_in():
+	%Camera2D.enabled = true
+
+func zoom_out():
+	%Camera2D.enabled = false
 
 func _on_body_entered(body):
 	pass

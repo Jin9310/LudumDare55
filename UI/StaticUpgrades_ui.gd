@@ -61,7 +61,6 @@ func available_helper():
 		%static_upgrades_btn.modulate = default_color
 
 
-
 func upgrade_available_checker(my_money: float, price: float, btn: Button, purchased: bool):
 	if my_money >= price && purchased == false:
 		btn.modulate = green_color

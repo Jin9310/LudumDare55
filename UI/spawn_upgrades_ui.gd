@@ -10,6 +10,9 @@ signal kill_all_pressed
 
 var mouse_click_upgrade_enabled: bool = false
 
+var green_color: Color = Color(0, 1, 0, 1)
+var default_color: Color = Color(1, 1, 1, 1)
+
 func _ready():
 	#tooltips
 	better_kills_tooltip()
@@ -45,14 +48,47 @@ func _process(delta):
 	if GameManager.auto_kill_acolytes:
 		%faster_kills_btn.disabled = false
 	
-	
-	#check that we have reached very low numbers on the auto kill/auto spawn speed
+		#check that we have reached very low numbers on the auto kill/auto spawn speed
 	if GameManager.auto_kill_base_timer <= 0.2:
 		UpgradesManager.fast_kill_low = true
 	
 	if GameManager.click_timer_base <= 0.3:
 		UpgradesManager.fast_spawn_low = true
+	
+	#ui color changes based on availability
+	upgrade_available_checker(GameManager.usable_money, UpgradesManager.kill_money_upgrade, %better_kills_btn)
+	upgrade_available_checker(GameManager.usable_money, UpgradesManager.spawn_more_minions_upgrade, %more_spawns_btn)
+	upgrade_available_checker(GameManager.usable_money, UpgradesManager.click_money_upgrade, %clicks_btn)
+	upgrade_available_checker(GameManager.usable_money, UpgradesManager.raise_max_amount_of_spawned, %max_amount_acol_btn)
+	if %faster_spawn_btn.disabled != true:
+		upgrade_available_checker(GameManager.usable_money, UpgradesManager.faster_auto_spawn_price, %faster_spawn_btn)
+	if %faster_kills_btn.disabled != true:
+		upgrade_available_checker(GameManager.usable_money, UpgradesManager.faster_auto_kill_price, %faster_kills_btn)
+	
+	any_up_available()
 
+func any_up_available():
+	if %better_kills_btn.modulate == green_color:
+		%static_upgrades_btn.modulate = green_color
+	elif %more_spawns_btn.modulate == green_color:
+		%static_upgrades_btn.modulate = green_color
+	elif %clicks_btn.modulate == green_color:
+		%static_upgrades_btn.modulate = green_color
+	elif %max_amount_acol_btn.modulate == green_color:
+		%static_upgrades_btn.modulate = green_color
+	elif %faster_spawn_btn.modulate == green_color:
+		%static_upgrades_btn.modulate = green_color
+	elif %faster_kills_btn.modulate == green_color:
+		%static_upgrades_btn.modulate = green_color
+	else:
+		%static_upgrades_btn.modulate = default_color
+	
+
+func upgrade_available_checker(my_money: float, price: float, btn: Button): #color changer
+	if my_money >= price:
+		btn.modulate = green_color
+	else:
+		btn.modulate = default_color
 
 func show_hide_panel():
 	var tween: Tween = get_tree().create_tween()
