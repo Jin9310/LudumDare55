@@ -100,6 +100,7 @@ func animation_finished():
 		GameManager.kills += 1
 		GameManager.current_minion_count -= 1
 		GameManager.usable_money += (1 * GameManager.kill_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
+		LowerBar.spawn_coin()
 		queue_free()
 
 func _on_input_event(viewport, event, shape_idx): #mouse click on a minion

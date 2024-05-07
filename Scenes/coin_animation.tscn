@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b77m4d0mu80qm"]
+[gd_scene load_steps=8 format=3 uid="uid://b77m4d0mu80qm"]
 
 [ext_resource type="PackedScene" uid="uid://cnx0gji3v8ncm" path="res://PrefabedScenes/object_prefab.tscn" id="1_64m4c"]
+[ext_resource type="Script" path="res://Scenes/coin_animation.gd" id="2_g8vfq"]
 [ext_resource type="Texture2D" uid="uid://vfpt1m1typvx" path="res://Art/coin/coin.png" id="2_uesdy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_215tv"]
@@ -83,6 +84,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_ended"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_unkv8"]
 _data = {
@@ -91,6 +106,7 @@ _data = {
 }
 
 [node name="CoinAnimation" instance=ExtResource("1_64m4c")]
+script = ExtResource("2_g8vfq")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_uesdy")

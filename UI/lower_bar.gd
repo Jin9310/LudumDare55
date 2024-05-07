@@ -57,13 +57,25 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("camera"):
 		%CheckButton.button_pressed = !%CheckButton.button_pressed
-		spawn_coin()
+	
 
 func spawn_coin():
 	var new_coin = preload("res://Scenes/coin_animation.tscn").instantiate()
-	new_coin.position = Control.position
-	%Control.add_child(new_coin)
-	#make it random here
+	var rand = randi_range(0,3)
+	match rand:
+		0:
+			new_coin.position = %Control.position
+			%Control.add_child(new_coin)
+		1:
+			new_coin.position = %Control2.position
+			%Control2.add_child(new_coin)
+		2:
+			new_coin.position = %Control3.position
+			%Control3.add_child(new_coin)
+		3:
+			new_coin.position = %Control4.position
+			%Control4.add_child(new_coin)
+	
 
 func _on_button_pressed():
 	emit_signal("kill_all_pressed")

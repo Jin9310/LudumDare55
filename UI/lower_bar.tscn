@@ -161,5 +161,32 @@ anchor_bottom = 1.0216
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="Control2" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 23.0
+offset_top = 294.0
+offset_right = 63.0
+offset_bottom = 334.0
+
+[node name="Control3" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 293.0
+offset_right = 49.0
+offset_bottom = 333.0
+
+[node name="Control4" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 294.0
+offset_right = 54.0
+offset_bottom = 334.0
+
 [connection signal="pressed" from="LowerMargin/HBoxContainer/CanvasLayer/Kill_all_btn" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LowerMargin/HBoxContainer/ZoomLayer/CheckButton" to="." method="_on_check_button_pressed"]

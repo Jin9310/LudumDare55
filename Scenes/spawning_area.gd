@@ -39,6 +39,7 @@ func _physics_process(delta):
 			elif GameManager.auto_click == true && auto_anim_start_ended == true:
 				auto_click_anim()
 			#earn money
+			LowerBar.spawn_coin()
 			GameManager.usable_money += (1 * GameManager.click_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
 			#emit_signal("show_me_coins")
 			#base timer can be updated so the auto clicks are faster
@@ -65,6 +66,7 @@ func click_anim():
 func _on_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("mouse_click"): #manual clicking
 		#earn money even if nothing is spawned?
+		LowerBar.spawn_coin()
 		GameManager.usable_money += (1 * GameManager.click_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
 		#emit_signal("show_me_coins")
 		##
