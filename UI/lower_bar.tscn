@@ -151,5 +151,15 @@ text = "Zoom"
 [node name="TextureRect" type="TextureRect" parent="LowerMargin"]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_left = 0.03125
+anchor_top = 0.898148
+anchor_right = 0.100694
+anchor_bottom = 1.0216
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="LowerMargin/HBoxContainer/CanvasLayer/Kill_all_btn" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LowerMargin/HBoxContainer/ZoomLayer/CheckButton" to="." method="_on_check_button_pressed"]

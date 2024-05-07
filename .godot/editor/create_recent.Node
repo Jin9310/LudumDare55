@@ -1,3 +1,4 @@
+Control
 CanvasLayer
 Label
 CheckButton
@@ -11,5 +12,3 @@ TileMap
 StaticBody2D
 PathFollow2D
 Path2D
-TextureButton
-ColorRect

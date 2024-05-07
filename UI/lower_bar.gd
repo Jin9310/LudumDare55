@@ -8,6 +8,8 @@ signal enable_camera
 @onready var static_upgrades: Node = get_node("/root/StaticUpgradesUi")
 @onready var spawn_area: Node = get_node("/root/NewGame/spawning_area")
 
+#@onready var coin = preload("res://Scenes/coin_animation.tscn").instantiate()
+
 
 var mouse_count: int = 0
 var kill_all_active: bool = false
@@ -55,7 +57,13 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("camera"):
 		%CheckButton.button_pressed = !%CheckButton.button_pressed
+		spawn_coin()
 
+func spawn_coin():
+	var new_coin = preload("res://Scenes/coin_animation.tscn").instantiate()
+	new_coin.position = Control.position
+	%Control.add_child(new_coin)
+	#make it random here
 
 func _on_button_pressed():
 	emit_signal("kill_all_pressed")

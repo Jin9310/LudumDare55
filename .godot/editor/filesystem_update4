@@ -6,8 +6,5 @@ res://HUD/hud.tscn
 res://UI/StaticUpgrades_ui.tscn
 res://UI/spawn_upgrades_ui.tscn
 res://UI/lower_bar.tscn
-res://UI/StaticUpgrades_ui.gd
-res://UI/spawn_upgrades_ui.gd
-res://game_manager.gd
 res://UI/lower_bar.gd
-res://Scenes/spawning_area.gd
+res://Scenes/coin_animation.tscn
