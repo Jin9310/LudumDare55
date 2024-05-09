@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://c1bexphce5hwy"
+path="res://.godot/imported/upgrade_purchased.sfxr-1cb32d190b153a498710f1829aca3aec.sample"
+
+[deps]
+
+source_file="res://new_sfx/upgrade_purchased.sfxr"
+dest_files=["res://.godot/imported/upgrade_purchased.sfxr-1cb32d190b153a498710f1829aca3aec.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

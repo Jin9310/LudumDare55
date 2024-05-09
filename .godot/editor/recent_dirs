@@ -1,6 +1,12 @@
-C:/Repos/G4_exports/LD55
-res://Scenes
-res://Sounds
+/Users/Jin/Desktop/Godot4 export
+res://new_sfx
 res://
+res://Scenes
+res://Singletons
+res://UI
+res://HUD
+res://MainMenu
+res://NewGame
+res://Sounds
 res://GameScene
 res://PrefabedScenes

@@ -1,0 +1,192 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbnw8qa8ugp6g"]
+
+[ext_resource type="Texture2D" uid="uid://vfpt1m1typvx" path="res://Art/coin/coin.png" id="1_hfrvc"]
+[ext_resource type="Script" path="res://UI/lower_bar.gd" id="1_qhl0l"]
+[ext_resource type="FontFile" uid="uid://br01odh1twpni" path="res://Fonts/aldo_the_apache/AldotheApache.ttf" id="3_o350x"]
+[ext_resource type="Texture2D" uid="uid://b4c7wi6vxcbvc" path="res://Art/icons/minion_icon.png" id="3_v36sj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c775j"]
+bg_color = Color(0.388235, 0.8, 0.372549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p22m"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixjxm"]
+bg_color = Color(0.388235, 0.8, 0.372549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4m34"]
+
+[node name="LowerBar" type="CanvasLayer"]
+script = ExtResource("1_qhl0l")
+
+[node name="LowerMargin" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.901235
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="LowerMargin"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.321569)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LowerMargin"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="CoinIcon" type="TextureRect" parent="LowerMargin/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_hfrvc")
+stretch_mode = 2
+
+[node name="Usable_mone_lbl" type="Label" parent="LowerMargin/HBoxContainer/CoinIcon"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.09375
+anchor_top = 0.1875
+anchor_right = 2.90625
+anchor_bottom = 0.8125
+theme_override_fonts/font = ExtResource("3_o350x")
+theme_override_font_sizes/font_size = 22
+text = "123456"
+metadata/_edit_use_anchors_ = true
+
+[node name="MinionIcon" type="TextureRect" parent="LowerMargin/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_v36sj")
+stretch_mode = 2
+
+[node name="MinionsAlive" type="Label" parent="LowerMargin/HBoxContainer/MinionIcon"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+offset_left = 34.0
+offset_top = 6.0
+offset_right = 96.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_o350x")
+theme_override_font_sizes/font_size = 22
+text = "100/100"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="LowerMargin/HBoxContainer"]
+
+[node name="Kill_all_btn" type="Button" parent="LowerMargin/HBoxContainer/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+offset_left = 276.0
+offset_top = 292.0
+offset_right = 332.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0.152941, 0.168627, 0.188235, 1)
+theme_override_fonts/font = ExtResource("3_o350x")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_c775j")
+text = "Kill All"
+
+[node name="ProgressBar" type="ProgressBar" parent="LowerMargin/HBoxContainer/CanvasLayer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(100, 25)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -29.0
+offset_right = 70.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.152941, 0.168627, 0.188235, 1)
+theme_override_fonts/font = ExtResource("3_o350x")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/background = SubResource("StyleBoxFlat_5p22m")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ixjxm")
+max_value = 250.0
+step = 1.0
+
+[node name="ZoomLayer" type="CanvasLayer" parent="LowerMargin/HBoxContainer"]
+
+[node name="CheckButton" type="CheckButton" parent="LowerMargin/HBoxContainer/ZoomLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.838542
+anchor_top = 0.901235
+anchor_right = 0.914931
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i4m34")
+metadata/_edit_use_anchors_ = true
+
+[node name="Zoom" type="Label" parent="LowerMargin/HBoxContainer/ZoomLayer/CheckButton"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 6.0
+offset_right = 85.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_o350x")
+theme_override_font_sizes/font_size = 22
+text = "Zoom"
+
+[node name="TextureRect" type="TextureRect" parent="LowerMargin"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_left = 0.03125
+anchor_top = 0.898148
+anchor_right = 0.100694
+anchor_bottom = 1.0216
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Control2" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 23.0
+offset_top = 294.0
+offset_right = 63.0
+offset_bottom = 334.0
+
+[node name="Control3" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 293.0
+offset_right = 49.0
+offset_bottom = 333.0
+
+[node name="Control4" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 294.0
+offset_right = 54.0
+offset_bottom = 334.0
+
+[connection signal="pressed" from="LowerMargin/HBoxContainer/CanvasLayer/Kill_all_btn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LowerMargin/HBoxContainer/ZoomLayer/CheckButton" to="." method="_on_check_button_pressed"]

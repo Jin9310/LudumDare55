@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj8d3pqavdy3d"]
+
+[ext_resource type="FontFile" uid="uid://br01odh1twpni" path="res://Fonts/aldo_the_apache/AldotheApache.ttf" id="2_b78el"]
+[ext_resource type="Script" path="res://UI/spawn_upgrades_ui.gd" id="2_eg8e7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cvd3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ls03"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxrjg"]
+
+[node name="SpawnUpgrades_ui" type="CanvasLayer"]
+script = ExtResource("2_eg8e7")
+
+[node name="SpawnMargin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 543.0
+offset_top = 40.0
+offset_right = 543.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SpawnMargin"]
+layout_mode = 2
+
+[node name="static_upgrades_btn" type="Button" parent="SpawnMargin/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_b78el")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cvd3t")
+text = "S"
+
+[node name="MarginContainer" type="MarginContainer" parent="SpawnMargin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SpawnMargin/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="better_kills_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Upgrade money gained per kill
+cost: 123
+current money gain per kill : 0.1"
+theme_override_fonts/font = ExtResource("2_b78el")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ls03")
+text = "Kills"
+
+[node name="more_spawns_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Upgrade the amount of minions spawned per click
+cost: 123
+currently spawns 1 per click"
+theme_override_fonts/font = ExtResource("2_b78el")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cxrjg")
+text = "Spawn"
+
+[node name="clicks_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Coins per every click
+cost : 123
+Currently gain 123 coins per click"
+theme_override_fonts/font = ExtResource("2_b78el")
+text = "Clicks"
+
+[node name="max_amount_acol_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Maximum number of spawned minions on screen
+cost : 150
+The current amount is visible in the bottom bar"
+theme_override_fonts/font = ExtResource("2_b78el")
+text = "Max"
+
+[node name="faster_spawn_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Upgrade how fast acolytes are spawn
+cost : 170
+Acolytes spawned every 2 s"
+theme_override_fonts/font = ExtResource("2_b78el")
+disabled = true
+text = "Faster spawn"
+
+[node name="faster_kills_btn" type="Button" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b78el")
+disabled = true
+text = "Faster Kills"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="auto_click_label_txt" type="Label" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Auto click info	"
+
+[node name="auto_kill_label_txt2" type="Label" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Auto kill info	"
+
+[node name="screenshake_label_txt3" type="Label" parent="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "screenshake info"
+
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/static_upgrades_btn" to="." method="_on_static_upgrades_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/better_kills_btn" to="." method="_on_better_kills_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/more_spawns_btn" to="." method="_on_more_spawns_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/clicks_btn" to="." method="_on_clicks_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/max_amount_acol_btn" to="." method="_on_max_amount_acol_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/faster_spawn_btn" to="." method="_on_faster_spawn_btn_pressed"]
+[connection signal="pressed" from="SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/faster_kills_btn" to="." method="_on_faster_kills_btn_pressed"]
