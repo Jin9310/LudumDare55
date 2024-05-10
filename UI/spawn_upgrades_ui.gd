@@ -76,6 +76,8 @@ func update_menu_color():
 	for child : Control in children:
 		if child.modulate == green_color:
 			found_a_purchasable_upgrade = true
+			break
+		
 	
 	if found_a_purchasable_upgrade:
 		%static_upgrades_btn.modulate = green_color
