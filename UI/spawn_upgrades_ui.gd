@@ -7,6 +7,7 @@ signal kill_all_pressed
 # 580 hidden position
 
 @export var static_upgrades_panel: bool = false #checking if I clicked the btn that opens the options
+@export var upgrades_container: VBoxContainer
 
 var mouse_click_upgrade_enabled: bool = false
 
@@ -65,20 +66,18 @@ func _process(delta):
 	if %faster_kills_btn.disabled != true:
 		upgrade_available_checker(GameManager.usable_money, UpgradesManager.faster_auto_kill_price, %faster_kills_btn)
 	
-	any_up_available()
+	update_menu_color()
 
-func any_up_available():
-	if %better_kills_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %more_spawns_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %clicks_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %max_amount_acol_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %faster_spawn_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %faster_kills_btn.modulate == green_color:
+func update_menu_color():
+	var children : Array[Node] = upgrades_container.get_children()
+	
+	var found_a_purchasable_upgrade: bool = false
+	
+	for child : Control in children:
+		if child.modulate == green_color:
+			found_a_purchasable_upgrade = true
+	
+	if found_a_purchasable_upgrade:
 		%static_upgrades_btn.modulate = green_color
 	else:
 		%static_upgrades_btn.modulate = default_color
