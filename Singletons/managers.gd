@@ -1,3 +1,7 @@
 extends Node
 
-@onready var coins : ManagerCoins = $"Coins" as ManagerCoins
+var coins: ManagerCoins
+
+
+func _enter_tree() -> void:
+	coins = $Coins as ManagerCoins

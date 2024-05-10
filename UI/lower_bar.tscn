@@ -1,9 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbnw8qa8ugp6g"]
+[gd_scene load_steps=10 format=3 uid="uid://bbnw8qa8ugp6g"]
 
 [ext_resource type="Texture2D" uid="uid://vfpt1m1typvx" path="res://Art/coin/coin.png" id="1_hfrvc"]
 [ext_resource type="Script" path="res://UI/lower_bar.gd" id="1_qhl0l"]
 [ext_resource type="FontFile" uid="uid://br01odh1twpni" path="res://Fonts/aldo_the_apache/AldotheApache.ttf" id="3_o350x"]
 [ext_resource type="Texture2D" uid="uid://b4c7wi6vxcbvc" path="res://Art/icons/minion_icon.png" id="3_v36sj"]
+
+[sub_resource type="GDScript" id="GDScript_hkycq"]
+resource_name = "usable_money_label"
+script/source = "extends Label
+
+
+func _ready() -> void:
+	update_text()
+	Managers.coins.coins_created.connect(_on_coins_updated)
+	Managers.coins.coins_consummed.connect(_on_coins_updated)
+
+
+func update_text() -> void:
+	text = \"%.2f\" % GameManager.usable_money
+
+
+func _on_coins_updated() -> void:
+	update_text()
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c775j"]
 bg_color = Color(0.388235, 0.8, 0.372549, 1)
@@ -66,6 +85,7 @@ anchor_bottom = 0.8125
 theme_override_fonts/font = ExtResource("3_o350x")
 theme_override_font_sizes/font_size = 22
 text = "123456"
+script = SubResource("GDScript_hkycq")
 metadata/_edit_use_anchors_ = true
 
 [node name="MinionIcon" type="TextureRect" parent="LowerMargin/HBoxContainer"]
