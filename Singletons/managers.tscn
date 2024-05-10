@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://deqnphtt0bw8m"]
+
+[ext_resource type="Script" path="res://Singletons/managers.gd" id="1_guibk"]
+[ext_resource type="Script" path="res://Singletons/managers/coins_manager.gd" id="2_02cu3"]
+
+[node name="Managers" type="Node"]
+script = ExtResource("1_guibk")
+
+[node name="Coins" type="Node" parent="."]
+script = ExtResource("2_02cu3")
