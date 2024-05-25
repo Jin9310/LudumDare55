@@ -9,8 +9,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxrjg"]
 
-[node name="SpawnUpgrades_ui" type="CanvasLayer"]
+[node name="SpawnUpgrades_ui" type="CanvasLayer" node_paths=PackedStringArray("upgrades_container")]
 script = ExtResource("2_eg8e7")
+upgrades_container = NodePath("SpawnMargin/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer")
 
 [node name="SpawnMargin" type="MarginContainer" parent="."]
 unique_name_in_owner = true

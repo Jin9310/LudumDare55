@@ -99,7 +99,7 @@ func animation_finished():
 		#delete acolyte if death animation is done
 		GameManager.kills += 1
 		GameManager.current_minion_count -= 1
-		GameManager.usable_money += (1 * GameManager.kill_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
+		Managers.coins.create_coins_from_killing()
 		LowerBar.spawn_coin()
 		queue_free()
 

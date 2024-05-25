@@ -41,7 +41,7 @@ func _physics_process(delta):
 			#earn money
 			#play_click_sound()
 			LowerBar.spawn_coin()
-			GameManager.usable_money += (1 * GameManager.click_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
+			Managers.coins.create_coins_from_summoning()
 			#emit_signal("show_me_coins")
 			#base timer can be updated so the auto clicks are faster
 			click_timer = GameManager.click_timer_base
@@ -69,7 +69,7 @@ func _on_input_event(viewport, event, shape_idx):
 		#earn money even if nothing is spawned?
 		#play_click_sound()
 		LowerBar.spawn_coin()
-		GameManager.usable_money += (1 * GameManager.click_money_multiplicator) * GameManager.acolytes_spawn_at_one_time
+		Managers.coins.create_coins_from_summoning()
 		#emit_signal("show_me_coins")
 		##
 		if GameManager.screen_shake: #screen shake enabler > prepared for UI where I want users to choose if screenshake is allowed or not

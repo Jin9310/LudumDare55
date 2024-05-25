@@ -7,6 +7,7 @@ signal kill_all_pressed
 # 580 hidden position
 
 @export var static_upgrades_panel: bool = false #checking if I clicked the btn that opens the options
+@export var upgrades_container: VBoxContainer
 
 var mouse_click_upgrade_enabled: bool = false
 
@@ -38,7 +39,7 @@ func _process(delta):
 	
 	##Mouse clicking upgrade
 	if Input.is_action_just_pressed("mouse_click") && mouse_click_upgrade_enabled:
-		GameManager.usable_money += 1 * GameManager.only_click_money_multiplicator
+		Managers.coins.create_coins_from_clicking()
 	
 	##enabling of the upgrades that are depending on static upgrades
 	#faster spawn
@@ -65,20 +66,20 @@ func _process(delta):
 	if %faster_kills_btn.disabled != true:
 		upgrade_available_checker(GameManager.usable_money, UpgradesManager.faster_auto_kill_price, %faster_kills_btn)
 	
-	any_up_available()
+	update_menu_color()
 
-func any_up_available():
-	if %better_kills_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %more_spawns_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %clicks_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %max_amount_acol_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %faster_spawn_btn.modulate == green_color:
-		%static_upgrades_btn.modulate = green_color
-	elif %faster_kills_btn.modulate == green_color:
+func update_menu_color():
+	var children : Array[Node] = upgrades_container.get_children()
+	
+	var found_a_purchasable_upgrade: bool = false
+	
+	for child : Control in children:
+		if child.modulate == green_color:
+			found_a_purchasable_upgrade = true
+			break
+		
+	
+	if found_a_purchasable_upgrade:
 		%static_upgrades_btn.modulate = green_color
 	else:
 		%static_upgrades_btn.modulate = default_color
@@ -110,7 +111,7 @@ func hide_others(): #check if other panels are selected or not, if yes, hide thi
 func _on_better_kills_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.kill_money_upgrade:
 		GameManager.kill_money_multiplicator += .1
-		GameManager.usable_money -= UpgradesManager.kill_money_upgrade
+		Managers.coins.consumme_coins(UpgradesManager.kill_money_upgrade)
 		UpgradesManager.kill_money_upgrade *= 1.6
 		better_kills_tooltip()
 
@@ -120,7 +121,7 @@ func better_kills_tooltip():
 func _on_more_spawns_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.spawn_more_minions_upgrade:
 		GameManager.acolytes_spawn_at_one_time += 1
-		GameManager.usable_money -= UpgradesManager.spawn_more_minions_upgrade
+		Managers.coins.consumme_coins(UpgradesManager.spawn_more_minions_upgrade)
 		UpgradesManager.spawn_more_minions_upgrade *= 1.6
 		more_spawn_tooltip()
 
@@ -131,12 +132,12 @@ func more_spawn_tooltip():
 func _on_kill_all_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.kill_all_button_price:
 		emit_signal("kill_all_pressed")
-		GameManager.usable_money -= UpgradesManager.kill_all_button_price
+		Managers.coins.consumme_coins(UpgradesManager.kill_all_button_price)
 
 
 func _on_clicks_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.click_money_upgrade:
-		GameManager.usable_money -= UpgradesManager.click_money_upgrade
+		Managers.coins.consumme_coins(UpgradesManager.click_money_upgrade)
 		UpgradesManager.click_money_upgrade *= 1.6
 		if mouse_click_upgrade_enabled == true:
 			GameManager.only_click_money_multiplicator += .1
@@ -152,7 +153,7 @@ func only_clicks_tooltip():
 
 func _on_max_amount_acol_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.raise_max_amount_of_spawned:
-		GameManager.usable_money -= UpgradesManager.raise_max_amount_of_spawned
+		Managers.coins.consumme_coins(UpgradesManager.raise_max_amount_of_spawned)
 		GameManager.max_spawned_acolytes += 50
 		UpgradesManager.raise_max_amount_of_spawned *= 1.7
 		max_amount_of_acols_tooltip()
@@ -162,12 +163,12 @@ func max_amount_of_acols_tooltip():
 
 func _on_faster_spawn_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.faster_auto_spawn_price && UpgradesManager.fast_spawn_low != true:
-		GameManager.usable_money -= UpgradesManager.faster_auto_spawn_price
+		Managers.coins.consumme_coins(UpgradesManager.faster_auto_spawn_price)
 		UpgradesManager.faster_auto_spawn_price *= 1.8
 		GameManager.click_timer_base -= .2
 		faster_spawn_tooltip()
 	if GameManager.usable_money >= UpgradesManager.faster_auto_spawn_price && UpgradesManager.fast_spawn_low && GameManager.click_timer_base > 0.01:
-		GameManager.usable_money -= UpgradesManager.faster_auto_spawn_price
+		Managers.coins.consumme_coins(UpgradesManager.faster_auto_spawn_price)
 		UpgradesManager.faster_auto_spawn_price *= 1.8
 		GameManager.click_timer_base -= UpgradesManager.low_multiplicator
 		faster_spawn_tooltip()
@@ -183,12 +184,12 @@ func faster_spawn_tooltip():
 
 func _on_faster_kills_btn_pressed():
 	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price && UpgradesManager.fast_kill_low != true:
-		GameManager.usable_money -= UpgradesManager.faster_auto_kill_price
+		Managers.coins.consumme_coins(UpgradesManager.faster_auto_kill_price)
 		UpgradesManager.faster_auto_kill_price *= 1.7
 		GameManager.auto_kill_base_timer -= .6
 		faster_kills_tooltip()
 	if GameManager.usable_money >= UpgradesManager.faster_auto_kill_price && UpgradesManager.fast_kill_low && GameManager.auto_kill_base_timer > 0.01:
-		GameManager.usable_money -= UpgradesManager.faster_auto_kill_price
+		Managers.coins.consumme_coins(UpgradesManager.faster_auto_kill_price)
 		UpgradesManager.faster_auto_kill_price *= 1.7
 		GameManager.auto_kill_base_timer -= UpgradesManager.low_multiplicator
 		faster_kills_tooltip()

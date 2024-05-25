@@ -30,7 +30,6 @@ func _ready():
 	
 
 func _process(delta):
-	%Usable_mone_lbl.text = "%.2f" % GameManager.usable_money
 	%MinionsAlive.text = str(GameManager.current_minion_count) + "/" + str(GameManager.max_spawned_acolytes)
 	
 	if Input.is_action_just_pressed("mouse_click"):
