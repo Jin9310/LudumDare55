@@ -45,4 +45,4 @@ func show_hide_debug():
 	if debug_panel == true:
 		tween.tween_property(%MarginContainer, "position", Vector2(0,0), .5).set_trans(Tween.TRANS_CUBIC)
 	else:
-		tween.tween_property(%MarginContainer, "position", Vector2(-200,0), .5)
+		tween.tween_property(%MarginContainer, "position", Vector2(-250,0), .5)
